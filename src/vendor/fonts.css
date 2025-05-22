@@ -2,5 +2,9 @@
     font-family: "Cabinet Grotesk";
     font-weight: 700;
     font-style: normal;
-    src: url("./fonts/CabinetGrotesk-Medium.otf") format("");
+    src: url("./fonts/CabinetGrotesk-Medium.otf") format("opentype");
+}
+
+body {
+    font-family: "Cabinet Grotesk", "Inter", "Helvetica Neue", "Arial", sans-serif;
 }
