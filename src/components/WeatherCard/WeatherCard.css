@@ -1,5 +1,7 @@
 .weather__card {
      position: relative;
+     display: flex;
+     height: 80px;
 }
 
 .weather__card-temp {
@@ -10,4 +12,11 @@
     top: 20px;
     left: 16px;
     color: #ffffff;
+}
+
+.weather__card-img {
+    object-fit: cover;
+    object-position: right top;
+    width: 100%;
+    border-radius: 12px;
 }
