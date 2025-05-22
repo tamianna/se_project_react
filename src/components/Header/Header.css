@@ -1,4 +1,28 @@
 .header {
     display: flex;
+    align-items: center;
+    margin-top: 32px;
+    
+}
+
+.header__logo {
+    padding-right: 24px;
+}
+
+.header__add-clothes-btn {
+    margin-left: auto;
+    border: none;
+}
+
+.header__user-container {
+    display: flex;
+    align-items: center;
+}
+
+.header__username {
+    padding: 0 12px 0 20px ;
+}
+
+.header__avatar {
     
 }
