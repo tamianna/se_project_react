@@ -1,6 +1,10 @@
+import WeatherCard from "../WeatherCard/WeatherCard";
+
 function Main() {
     return (
-        <div></div>
+        <>
+        <WeatherCard />
+        </>
     )
 }
 
