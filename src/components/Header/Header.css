@@ -9,6 +9,10 @@
     padding-right: 24px;
 }
 
+.header__date-and-location {
+    margin: 0;
+}
+
 .header__add-clothes-btn {
     margin-left: auto;
     border: none;
@@ -21,6 +25,7 @@
 
 .header__username {
     padding: 0 12px 0 20px ;
+    margin: 0;
 }
 
 .header__avatar {
