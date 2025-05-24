@@ -55,18 +55,18 @@
     flex-direction: column;
 }
 
-.modal__label_type_radio {
+.modal__radio-label {
     flex-direction: row;
     gap: 5px;
     padding-bottom: 8px;
-    opacity: .5;
+    color: #00000080;
 }
 
-.modal__label_type_radio:first-of-type {
+.modal__radio-label:first-of-type {
     padding-top: 12px;
 }
 
-.modal__label_type_radio:last-of-type {
+.modal__radio-label:last-of-type {
     padding-bottom: 0;
 }
 
@@ -74,6 +74,16 @@
     border: none;
     padding-top: 8px;
     border-bottom: 1px solid #00000080;
+}
+
+.modal__radio-input:checked {
+    accent-color: #000000;
+}
+
+.modal__radio-input:checked ~ span {
+    font-weight: bold;
+    color: #000000;
+    opacity: 1;
 }
 
 .modal__radio-buttons {
