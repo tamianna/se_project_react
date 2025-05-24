@@ -1,0 +1,87 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0000004D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__container {
+    background-color: #ffffff;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.25;
+    padding: 28px 28px 36px;
+    border: 1px solid #0000004D;
+    border-radius: 20px;
+    max-width: 496px;
+    width: 100%;
+}
+
+.modal__title {
+    margin: 0 0 24px;
+}
+
+.modal__close-button {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    border: none;
+    background-color: transparent;
+}
+
+.modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modal__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__label_type_radio {
+    flex-direction: row;
+    gap: 5px;
+    padding-bottom: 8px;
+    opacity: .5;
+}
+
+.modal__label_type_radio:first-of-type {
+    padding-top: 12px;
+}
+
+.modal__label_type_radio:last-of-type {
+    padding-bottom: 0;
+}
+
+.modal__input {
+    border: none;
+    padding-top: 8px;
+    border-bottom: 1px solid #00000080;
+}
+
+.modal__radio-buttons {
+    padding: 0;
+    margin: 0 0 32px;
+    border: none;
+}
+
+.modal__add-button {
+    width: 124px;
+    height: 36px;
+    border-radius: 4px;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.modal__add-button:hover {
+    background-color: #0000004D;
+    cursor: pointer;
+}

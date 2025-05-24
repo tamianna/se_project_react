@@ -1,12 +1,15 @@
 import "./ModalWithForm.css";
+import closeButton from "../../images/modalClose.svg";
 
 function ModalWithForm() {
     return (
         <div className="modal">
             <div className="modal__container">
                 <h2 className="modal__title">New garment</h2>
-                <button type="button" className="modal__close"></button>
-            </div>
+                <button type="button" className="modal__close-button">
+                    <img src={closeButton} alt="Close button, an X." className="modal__close-icon" />
+                </button>
+
             <form className="modal__form">
                 <label htmlFor="name" className="modal__label">
                     Name 
@@ -16,7 +19,8 @@ function ModalWithForm() {
                     placeholder="Name"
                     className="modal__input" />
                 </label>
-                <label htmlFor="iomage" className="modal__label">
+                <label htmlFor="image" className="modal__label">
+                    Image
                     <input 
                     id="image"
                     type="url" 
@@ -51,13 +55,14 @@ function ModalWithForm() {
                             className="modal__radio-input" />
                             Cold
                         </label>
-                        <button type="submit" className="modal__add-button">
-                            Add garment
-                        </button>
                     </legend>
                 </fieldset>
             </form>
+            <button type="submit" className="modal__add-button">
+                Add garment
+            </button>
         </div>
+    </div>
     )
 }
 
