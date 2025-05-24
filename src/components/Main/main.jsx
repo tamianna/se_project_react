@@ -1,4 +1,5 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
+import { defaultClothingItems } from "../../utils/constants";
 
 function Main() {
     return (
