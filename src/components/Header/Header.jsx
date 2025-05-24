@@ -2,11 +2,11 @@ import "./Header.css";
 import headerLogo from "../../images/header-logo.svg";
 import headerAvatar from "../../images/header-avatar.svg";
 
-function Header({ handleAddClick, currentDate }) {
+function Header({ handleAddClick, currentDate, weatherData }) {
     return (
         <header className="header">
             <img className="header__logo" src={headerLogo} alt="WWTR logo."/>
-            <p className="header__date-and-location">{currentDate}. LOCATION.</p>
+            <p className="header__date-and-location">{currentDate}. {weatherData.city}.</p>
             <button 
                 onClick={handleAddClick} 
                 type="button" 

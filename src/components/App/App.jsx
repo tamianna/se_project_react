@@ -6,11 +6,15 @@ import Main from '../Main/Main';
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
-import { getWeather } from "../../utils/WeatherApi";
-import { myCoordinates, APIKey } from "../../utils/constants";
+import { getWeather, filterWeatherData } from "../../utils/WeatherApi";
+import { myCoordinates, APIkey } from "../../utils/constants";
 
 function App() {
-    const [weatherData, setWeatherData] = useState({ type: "cold"});
+    const [weatherData, setWeatherData] = useState({ 
+        type: "",
+        temp: { F: 999, C: 999 },
+        city: "",
+    });
     const [activeModal, setActiveModal] = useState("");
     const [selectedCard, setSelectedCard] = useState({});
     const [currentDate, setCurrentDate]= useState("");
@@ -21,6 +25,15 @@ function App() {
             day: "numeric",
         });
         setCurrentDate(today);
+    }, []);
+
+    useEffect(() => {
+        getWeather(myCoordinates, APIkey)
+        .then((data) => {
+            const filteredData = filterWeatherData(data);
+            setWeatherData(filteredData);
+        })
+        .catch(console.error);
     }, []);
 
     const handleCardClick = (card) => {
@@ -42,6 +55,7 @@ function App() {
             <Header 
             handleAddClick={handleAddClick}
             currentDate={currentDate}
+            weatherData={weatherData}
              />
             <Main 
             weatherData={weatherData}
