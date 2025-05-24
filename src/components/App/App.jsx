@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import './App.css';
 import Header from '../Header/Header';
@@ -11,6 +11,15 @@ function App() {
     const [weatherData, setWeatherData] = useState({ type: "cold"});
     const [activeModal, setActiveModal] = useState("");
     const [selectedCard, setSelectedCard] = useState({});
+    const [currentDate, setCurrentDate]= useState("");
+
+    useEffect(() => {
+        const today = new Date().toLocaleString("defualt", {
+            month: "long",
+            day: "numeric",
+        });
+        setCurrentDate(today);
+    }, []);
 
     const handleCardClick = (card) => {
         setActiveModal("preview");
@@ -28,7 +37,10 @@ function App() {
     return ( 
     <div className='page'>
         <div className='page__content'>
-            <Header handleAddClick={handleAddClick} />
+            <Header 
+            handleAddClick={handleAddClick}
+            currentDate={currentDate}
+             />
             <Main 
             weatherData={weatherData}
             handleCardClick={handleCardClick} 
