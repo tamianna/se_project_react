@@ -6,6 +6,8 @@ import Main from '../Main/Main';
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
+import { getWeather } from "../../utils/WeatherApi";
+import { myCoordinates, APIKey } from "../../utils/constants";
 
 function App() {
     const [weatherData, setWeatherData] = useState({ type: "cold"});
