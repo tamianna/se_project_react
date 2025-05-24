@@ -4,6 +4,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from "../Footer/Footer";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function App() {
     const [weatherData, setweatherData] = useState({ type: "cold"});
@@ -15,6 +16,7 @@ function App() {
             <Main weatherData={weatherData} />
             <Footer />
         </div>
+        <ModalWithForm />
     </div>
     )
 }
