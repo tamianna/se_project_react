@@ -34,6 +34,10 @@
     background-color: transparent;
 }
 
+.modal__close-button:hover {
+    cursor: pointer;
+}
+
 .modal__form {
     display: flex;
     flex-direction: column;
