@@ -1,5 +1,5 @@
 import "./ItemModal.css"
-import previewClose from "../../images/previewClose.svg";
+import previewCloseButton from "../../images/previewclosebutton.svg";
 
 
 function ItemModal({ activeModal, closeActiveModal, card }) {
@@ -11,7 +11,7 @@ function ItemModal({ activeModal, closeActiveModal, card }) {
                     type="button" 
                     className="modal__close-button"
                 >
-                    <img src={previewClose} alt="Close button, an X." className="modal__close-icon" />
+                    <img src={previewCloseButton} alt="Close button, an X." className="modal__close-icon" />
                 </button>
                 <img src={card.link} alt={card.name} className="modal__image" />
                 <div className="modal__footer">
