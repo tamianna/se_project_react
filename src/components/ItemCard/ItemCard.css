@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, 323px);
     gap: 20px;
+    list-style-type: none;
 }
 
 .card__title {
