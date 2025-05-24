@@ -14,6 +14,10 @@ function App() {
         setActiveModal("add-garment");
     };
 
+    const closeActiveModal = () => {
+        setActiveModal("");
+    };
+
     return ( 
     <div className='page'>
         <div className='page__content'>
@@ -25,6 +29,7 @@ function App() {
         title="New garment" 
         buttonText="Add garment"
         activeModal={activeModal}
+        closeActiveModal={closeActiveModal}
         >
             <label htmlFor="name" className="modal__label">
                     Name 
