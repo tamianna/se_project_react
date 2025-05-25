@@ -5,7 +5,17 @@
     }
 
     return Promise.reject(`Error: ${res.status}`);
-}
+};
+
+    const getWeatherType = (temperature) => {
+    if (temperature >= 75) {
+        return "hot";
+    } else if (temperature >= 60 && temperature < 75) {
+        return "warm";
+    } else {
+        return "cold";
+    }
+};
 
 export const getWeather = ({ latitude, longitude }, APIkey) => {
     return fetch(
@@ -14,18 +24,10 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
 };
 
 export const filterWeatherData = (data) => {
-      console.log("API Weather Data:", data.weather[0].main);
-      console.log("Temperature:", data.main.temp);
     const result = {};
     result.city = data.name;
-
-    if (data.main.temp >= 75) {
-        result.type = "hot";
-    } else if (data.main.temp >= 60 && data.main.temp < 75) {
-        result.type = "warm";
-    } else {
-        result.type = "cold";
-    }
+    result.temp = { F: data.main.temp};
+    result.type = getWeatherType(result.temp.F);
 
     return result;
 };
