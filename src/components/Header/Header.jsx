@@ -3,10 +3,13 @@ import headerLogo from "../../images/header-logo.svg";
 import headerAvatar from "../../images/header-avatar.svg";
 import menuOpenIcon from "../../images/menu-tab.svg";
 import menuCloseIcon from "../../images/menu-close.svg";
-import { useState } from "react";
 
-function Header({ handleAddClick, currentDate, weatherData }) {
-    const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+function Header({ 
+    handleAddClick, 
+    currentDate, 
+    weatherData, 
+    isMobileMenuOpened, 
+    setIsMobileMenuOpened }) {
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpened(!isMobileMenuOpened);
@@ -14,8 +17,14 @@ function Header({ handleAddClick, currentDate, weatherData }) {
 
     return (
         <header className="header">
-            <img className="header__logo" src={headerLogo} alt="WWTR logo."/>
-            <p className="header__date-and-location">{currentDate}. {weatherData.city}.</p>
+            <img className="header__logo" 
+            src={headerLogo} 
+            alt="WWTR logo."
+            />
+            <p className="header__date-and-location">
+                {currentDate}. 
+                {weatherData.city}.
+                </p>
 
             {/*mobile menu toggle button */}
             <button 
@@ -25,6 +34,7 @@ function Header({ handleAddClick, currentDate, weatherData }) {
                 <img 
                 src={isMobileMenuOpened ? menuCloseIcon : menuOpenIcon} 
                 alt={isMobileMenuOpened ? "Close menu" : "Open menu"} 
+                className="header__menu-close"
                 />    
             </button>
 

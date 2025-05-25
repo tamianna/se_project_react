@@ -20,3 +20,17 @@
 .modal__weather {
     margin: 0 0 32px 32px;
 }
+
+@media screen and (max-width: 425px) {
+    .modal__container_type_preview {
+        max-width: 343px;
+        height: 463px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .modal__container_type_preview {
+        max-width: 300px;
+        height: 400px;
+    }
+}

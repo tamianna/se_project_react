@@ -18,6 +18,7 @@ function App() {
     const [activeModal, setActiveModal] = useState("");
     const [selectedCard, setSelectedCard] = useState({});
     const [currentDate, setCurrentDate]= useState("");
+    const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
     useEffect(() => {
         const today = new Date().toLocaleString("defualt", {
@@ -43,6 +44,7 @@ function App() {
 
     const handleAddClick = () => {
         setActiveModal("add-garment");
+        setIsMobileMenuOpened(false);
     };
 
     const closeActiveModal = () => {
@@ -56,13 +58,16 @@ function App() {
             handleAddClick={handleAddClick}
             currentDate={currentDate}
             weatherData={weatherData}
+            isMobileMenuOpened={isMobileMenuOpened}
+            setIsMobileMenuOpened={setIsMobileMenuOpened}
              />
             <Main 
             weatherData={weatherData}
             handleCardClick={handleCardClick} 
             />
-            <Footer />
         </div>
+        <Footer />
+        
         <ModalWithForm 
         title="New garment" 
         buttonText="Add garment"

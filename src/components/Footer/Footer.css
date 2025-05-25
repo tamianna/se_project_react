@@ -2,7 +2,7 @@
     font-size: 16px;
     line-height: 1.25;
     display: flex;
-    margin: 171px 0 24px;
+    padding: 0 42px;
     justify-content: space-between;
 }
 
@@ -12,4 +12,10 @@
 
 .footer__year {
     margin: 0;
+}
+
+@media screen and (max-width: 425px) {
+    .footer__container {
+        padding: 0 16px;
+    }
 }
