@@ -33,6 +33,9 @@ export const filterWeatherData = (data) => {
     result.temp = { F: data.main.temp};
     result.type = getWeatherType(result.temp.F);
     result.condition = data.weather[0].main.toLowerCase();
+    result.iconId = data.weather[0].id;
+    result.iconCode = data.weather[0].icon;
+    result.description = data.weather[0].description;
     result.isDay = isDay(data.sys, Date.now());
 
     return result;
