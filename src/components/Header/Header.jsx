@@ -34,7 +34,7 @@ function Header({
                 <img 
                 src={isMobileMenuOpened ? menuCloseIcon : menuOpenIcon} 
                 alt={isMobileMenuOpened ? "Close menu" : "Open menu"} 
-                className="header__menu-close"
+                className="header__mobile-icon"
                 />    
             </button>
 
