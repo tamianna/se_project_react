@@ -1,6 +1,8 @@
 import "./Header.css";
 import headerLogo from "../../images/header-logo.svg";
 import headerAvatar from "../../images/header-avatar.svg";
+import menuOpenIcon from "../../images/menu-tab.svg";
+import menuCloseIcon from "../../images/menu-close.svg";
 
 function Header({ handleAddClick, currentDate, weatherData }) {
     return (
