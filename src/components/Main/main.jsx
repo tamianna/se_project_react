@@ -2,6 +2,7 @@ import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
+import random from "../../images/random.svg";
 
 function Main({ weatherData, handleCardClick }) {
     return (
@@ -25,6 +26,14 @@ function Main({ weatherData, handleCardClick }) {
                     );
                 })}
             </ul>
+            <button 
+            className="cards__random-button">
+                <img 
+                src={random} 
+                alt="Random icon." 
+                className="random-icon" />
+                Randomize
+            </button>
         </section>
         </main>
     )
