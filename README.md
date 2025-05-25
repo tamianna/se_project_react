@@ -17,6 +17,12 @@ The WTWR app helps users decide what to wear by analyzing the current weather an
 
 ---
 
+## 🔗 Live Demo
+
+[View Deployed App](https://tamianna.github.io/se_project_react/)
+
+---
+
 ## 🚀 Features
 
 - 📡 Fetches real-time weather data
