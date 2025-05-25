@@ -2,6 +2,9 @@
      position: relative;
      display: flex;
      height: 80px;
+     background-size: cover;
+     background-position: right;
+     border-radius: 12px;
 }
 
 /*day styles*/
@@ -9,23 +12,23 @@
     background-image: url("../../images/day/clear.svg");
 }
 
-.weather__card--day--clouds {
+.weather__card--day-clouds {
     background-image: url("../../images/day/clouds.svg");
 }
 
-.weather__card--day--rain {
+.weather__card--day-rain {
     background-image: url("../../images/day/rain.svg");
 }
 
-.weather__card--day--thuderstorm {
+.weather__card--day-thuderstorm {
     background-image: url("../../images/day/thunderstorm.svg");
 }
 
-.weather__card--day--snow {
+.weather__card--day-snow {
     background-image: url("../../images/day/snow.svg");
 }
 
-.weather__card--day--fog {
+.weather__card--day-fog {
     background-image: url("../../images/day/fog.svg");
 }
 
@@ -66,7 +69,8 @@
 
 .weather__card-img {
     object-fit: cover;
-    object-position: right top;
-    width: 100%;
     border-radius: 12px;
+    position:absolute;
+    left: 121px;
+    bottom: -10px;
 }

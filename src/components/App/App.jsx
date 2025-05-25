@@ -10,7 +10,7 @@ import { getWeather, filterWeatherData } from "../../utils/WeatherApi";
 import { myCoordinates, APIkey } from "../../utils/constants";
 
 function App() {
-    const [weatherData, setWeatherData] = useState({ 
+  const [weatherData, setWeatherData] = useState({ 
         type: "",
         temp: { F: 999, C: 999 },
         city: "",
