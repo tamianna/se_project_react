@@ -1,33 +1,33 @@
 .footer {
-    max-width: 1440px;
-    margin: 0 auto;
-    font-size: 16px;
-    line-height: 1.25;
-    display: flex;
-    padding: 0 42px;
-    justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.25;
+  display: flex;
+  padding: 0 42px;
+  justify-content: space-between;
 }
 
 .footer__name {
-    margin: 0;
+  margin: 0;
 }
 
 .footer__year {
-    margin: 0;
+  margin: 0;
 }
 
 @media screen and (max-width: 425px) {
-    .footer__container {
-        padding: 0 16px;
-    }
+  .footer__container {
+    padding: 0 16px;
+  }
 }
 
-@media  screen and (max-width: 320px) {
-    .footer__name {
-        font-size: 13px;
-    }
+@media screen and (max-width: 320px) {
+  .footer__name {
+    font-size: 13px;
+  }
 
-    .footer__year {
-        font-size: 13px;
-    }
+  .footer__year {
+    font-size: 13px;
+  }
 }

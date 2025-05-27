@@ -1,83 +1,83 @@
 .weather__card {
-     position: relative;
-     display: flex;
-     height: 80px;
-     background-size: cover;
-     background-position: right;
-     border-radius: 12px;
+  position: relative;
+  display: flex;
+  height: 80px;
+  background-size: cover;
+  background-position: right;
+  border-radius: 12px;
 }
 
 /*day styles*/
 .weather__card--day-clear {
-    background-image: url("../../images/day/clear.svg");
+  background-image: url('../../images/day/clear.svg');
 }
 
 .weather__card--day-clouds {
-    background-image: url("../../images/day/clouds.svg");
+  background-image: url('../../images/day/clouds.svg');
 }
 
 .weather__card--day-rain {
-    background-image: url("../../images/day/rain.svg");
+  background-image: url('../../images/day/rain.svg');
 }
 
 .weather__card--day-thuderstorm {
-    background-image: url("../../images/day/thunderstorm.svg");
+  background-image: url('../../images/day/thunderstorm.svg');
 }
 
 .weather__card--day-snow {
-    background-image: url("../../images/day/snow.svg");
+  background-image: url('../../images/day/snow.svg');
 }
 
 .weather__card--day-fog {
-    background-image: url("../../images/day/fog.svg");
+  background-image: url('../../images/day/fog.svg');
 }
 
 /*night styles*/
 .weather__card--night-clear {
-    background-image: url("../../images/night/clear.svg");
+  background-image: url('../../images/night/clear.svg');
 }
 
 .weather__card--night-clouds {
-    background-image: url("../../images/night/clouds.svg");
+  background-image: url('../../images/night/clouds.svg');
 }
 
 .weather__card--night-rain {
-    background-image: url("../../images/night/rain.svg");
+  background-image: url('../../images/night/rain.svg');
 }
 
 .weather__card--night-thuderstorm {
-    background-image: url("../../images/night/thunderstorm.svg");
+  background-image: url('../../images/night/thunderstorm.svg');
 }
 
 .weather__card--night-snow {
-    background-image: url("../../images/night/snow.svg");
+  background-image: url('../../images/night/snow.svg');
 }
 
 .weather__card--night-fog {
-    background-image: url("../../images/night/fog.svg");
+  background-image: url('../../images/night/fog.svg');
 }
 
 .weather__card-temp {
-    font-size: 36px;
-    line-height: 1.11;
-    margin: 0;
-    position: absolute;
-    top: 20px;
-    left: 16px;
-    color: #ffffff;
+  font-size: 36px;
+  line-height: 1.11;
+  margin: 0;
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  color: #ffffff;
 }
 
 .weather__card-img {
-    object-fit: cover;
-    border-radius: 12px;
-    position:absolute;
-    left: 121px;
-    bottom: -10px;
+  object-fit: cover;
+  border-radius: 12px;
+  position: absolute;
+  left: 121px;
+  bottom: -10px;
 }
 
 @media screen and (max-width: 425px) {
-    .weather__card {
-        margin-top: 56px;
-       /* z-index: 1;*/
-    }
+  .weather__card {
+    margin-top: 56px;
+    /* z-index: 1;*/
+  }
 }

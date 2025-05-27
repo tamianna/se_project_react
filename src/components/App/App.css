@@ -1,22 +1,23 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .page {
-    background-color: #f3f3f3;
-    min-height: 100vh;
+  background-color: #f3f3f3;
+  min-height: 100vh;
 }
 
 .page__content {
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 0 40px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 @media screen and (max-width: 425px) {
-    .page__content {
-        padding: 18px 16px 20px;
-    }
+  .page__content {
+    padding: 18px 16px 20px;
+  }
 }

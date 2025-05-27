@@ -1,134 +1,131 @@
 .header {
-    display: flex;
-    align-items: center;
-    padding: 32px 0 28px;
-    position: relative;
-    
+  display: flex;
+  align-items: center;
+  padding: 32px 0 28px;
+  position: relative;
 }
 
 .header__logo {
-    padding-right: 24px;
+  padding-right: 24px;
 }
 
 .header__date-and-location {
-    margin: 0;
-    flex-grow: 1;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .header__add-clothes-btn {
-    margin-left: auto;
-    border: none;
-    padding: 0;
-    background-color: transparent;
+  margin-left: auto;
+  border: none;
+  padding: 0;
+  background-color: transparent;
 }
 
 .header__add-clothes-btn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .header__user-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header__username {
-    padding: 0 12px 0 20px ;
-    margin: 0;
+  padding: 0 12px 0 20px;
+  margin: 0;
 }
 
 .header__mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    margin-left: auto;
+  display: none;
+  background: none;
+  border: none;
+  margin-left: auto;
 }
 
 .header__nav-container {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
-
 @media screen and (max-width: 425px) {
-    .header {
-        flex-wrap: wrap;
-    }
+  .header {
+    flex-wrap: wrap;
+  }
 
-    .header__logo {
-        display: flex;
-        align-items: center;
-        padding: 0;
-    }
+  .header__logo {
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
 
-    .header__date-and-location {
-        position: absolute;
-        top: 94px;
-    }
+  .header__date-and-location {
+    position: absolute;
+    top: 94px;
+  }
 
-     .header__add-clothes-btn {
-        margin: 0;
-        position: absolute;
-        bottom: 60px;
-    }
+  .header__add-clothes-btn {
+    margin: 0;
+    position: absolute;
+    bottom: 60px;
+  }
 
-    .header__user-container {
-        gap: 12px;
-        margin: 0;
-        padding-top: 60px;
-    }
+  .header__user-container {
+    gap: 12px;
+    margin: 0;
+    padding-top: 60px;
+  }
 
-    .header__username {
-        padding: 0;
-        margin-bottom: 8px;
-    }
+  .header__username {
+    padding: 0;
+    margin-bottom: 8px;
+  }
 
-    .header__mobile-toggle {
-        display: flex;
-        align-items: center;
-        position: absolute;
-        top: 20px;
-        right: -14px;
-        z-index: 9999;
-    }
+  .header__mobile-toggle {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: -14px;
+    z-index: 9999;
+  }
 
-    .header__mobile-icon {
-        position: relative;
-        right: 20px;
-        top: 20px;
-    }
+  .header__mobile-icon {
+    position: relative;
+    right: 20px;
+    top: 20px;
+  }
 
-    .header__nav-container {
-      display: none;
-    }
+  .header__nav-container {
+    display: none;
+  }
 
-    .header__nav-container--open {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 18px;
-        background-color: white;
-        border-radius: 12px;
-        width: 365px;
-        height: 185px;
-        padding: 18px 16px 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 2;
-    }
+  .header__nav-container--open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 18px;
+    background-color: white;
+    border-radius: 12px;
+    width: 365px;
+    height: 185px;
+    padding: 18px 16px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
 }
 
 @media screen and (min-width: 375px) and (max-width: 375px) {
-    .header__nav-container--open {
-        width: 316px;
-        height: 180px;
-    }
+  .header__nav-container--open {
+    width: 316px;
+    height: 180px;
+  }
 }
 
-@media  screen and (max-width: 320px) {
-    .header__nav-container--open {
-        width: 260px;
-        height: 175px;
-    }
+@media screen and (max-width: 320px) {
+  .header__nav-container--open {
+    width: 260px;
+    height: 175px;
+  }
 }
-    
