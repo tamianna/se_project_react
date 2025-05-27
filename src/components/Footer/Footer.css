@@ -21,3 +21,13 @@
         padding: 0 16px;
     }
 }
+
+@media  screen and (max-width: 320px) {
+    .footer__name {
+        font-size: 13px;
+    }
+
+    .footer__year {
+        font-size: 13px;
+    }
+}
