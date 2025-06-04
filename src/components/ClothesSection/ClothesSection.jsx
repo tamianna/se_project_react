@@ -14,16 +14,15 @@ function ClothesSection({ handleCardClick }) {
         </button>
       </div>
       <ul className="cards__lists">
-        {defaultClothingItems
-          .map((item) => {
-            return (
-              <ItemCard
-                key={item._id}
-                item={item}
-                onCardClick={handleCardClick}
-              />
-            )
-          })}
+        {defaultClothingItems.map((item) => {
+          return (
+            <ItemCard
+              key={item._id}
+              item={item}
+              onCardClick={handleCardClick}
+            />
+          )
+        })}
       </ul>
     </div>
   )

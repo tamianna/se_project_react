@@ -54,7 +54,7 @@ function App() {
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === 'F'
       ? setCurrentTemperatureUnit('C')
-      : setCurrentTemperatureUnit('F');
+      : setCurrentTemperatureUnit('F')
   }
 
   const closeActiveModal = () => {
@@ -75,10 +75,17 @@ function App() {
             setIsMobileMenuOpened={setIsMobileMenuOpened}
           />
           <Routes>
-            <Route path="/se_project_react" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} />} />
+            <Route
+              path="/se_project_react"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                />
+              }
+            />
             <Route path="/se_project_react/profile" element={<Profile />} />
           </Routes>
-          
         </div>
         <Footer />
 
