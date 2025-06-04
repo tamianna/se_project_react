@@ -21,6 +21,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({})
   const [currentDate, setCurrentDate] = useState('')
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false)
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F')
 
   useEffect(() => {
     const today = new Date().toLocaleString('defualt', {
