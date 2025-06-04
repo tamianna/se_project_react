@@ -1,4 +1,6 @@
 import './Header.css'
+import { Link } from 'react-router-dom'
+
 import headerLogo from '../../images/header-logo.svg'
 import headerAvatar from '../../images/header-avatar.svg'
 import menuOpenIcon from '../../images/menu-tab.svg'
@@ -18,7 +20,9 @@ function Header({
 
   return (
     <header className="header">
-      <img className="header__logo" src={headerLogo} alt="WWTR logo." />
+      <Link to="/se_project_react">
+        <img className="header__logo" src={headerLogo} alt="WWTR logo." />
+      </Link>
       <p className="header__date-and-location">
         {currentDate}.{weatherData.city}.
       </p>
@@ -43,14 +47,17 @@ function Header({
         >
           + Add Clothes
         </button>
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img
-            src={headerAvatar}
-            alt="Terrence Tegegne."
-            className="header__avatar"
-          />
-        </div>
+
+        <Link to="/se_project_react/profile" className='header__link'>
+          <div className="header__user-container">
+            <p className="header__username">Terrence Tegegne</p>
+            <img
+              src={headerAvatar}
+              alt="Terrence Tegegne."
+              className="header__avatar"
+            />
+          </div>
+        </Link>
       </div>
     </header>
   )
