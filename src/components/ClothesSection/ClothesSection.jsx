@@ -7,7 +7,7 @@ import ItemCard from '../ItemCard/ItemCard'
 function ClothesSection({ handleCardClick }) {
   return (
     <div className="clothes-section">
-      <div className="clothes-section-menu">
+      <div className="clothes-section_menu">
         <p className="clothes-section_title">Your items</p>
         <button type="button" className="clothes-section_button">
           + Add new
