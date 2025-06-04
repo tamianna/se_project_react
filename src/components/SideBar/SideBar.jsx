@@ -11,6 +11,11 @@ function SideBar() {
         alt="The default avatar."
       />
       <p className="sidebar__username">Terrence Tegegne</p>
+
+      <div className="sidebar__mobile_text">
+        <p className="sidebar__change-profile">Change profile data</p>
+        <p className="sidebar__log-out">Log out</p>
+      </div>
     </div>
   )
 }
