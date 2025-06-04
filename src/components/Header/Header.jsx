@@ -3,6 +3,7 @@ import headerLogo from '../../images/header-logo.svg'
 import headerAvatar from '../../images/header-avatar.svg'
 import menuOpenIcon from '../../images/menu-tab.svg'
 import menuCloseIcon from '../../images/menu-close.svg'
+import ToggleSwitch from '../ToggleSwitch/ToggleSwith.jsx'
 
 function Header({
   handleAddClick,
@@ -34,6 +35,7 @@ function Header({
       <div
         className={`header__nav-container ${isMobileMenuOpened ? 'header__nav-container--open' : ''}`}
       >
+        <ToggleSwitch />
         <button
           onClick={handleAddClick}
           type="button"

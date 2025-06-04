@@ -8,7 +8,6 @@ import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import ItemModal from '../ItemModal/ItemModal'
-import ToggleSwitch from '../ToggleSwitch/ToggleSwith'
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit'
 
 function App() {
@@ -53,7 +52,7 @@ function App() {
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === 'F'
       ? setCurrentTemperatureUnit('C')
-      : setCurrentTemperatureUnit('F')
+      : setCurrentTemperatureUnit('F');
   }
 
   const closeActiveModal = () => {
