@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { getWeather, filterWeatherData } from '../../utils/WeatherApi'
+import { myCoordinates, APIkey } from '../../utils/constants'
 
 import './App.css'
 import Header from '../Header/Header'
@@ -6,8 +8,7 @@ import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import ItemModal from '../ItemModal/ItemModal'
-import { getWeather, filterWeatherData } from '../../utils/WeatherApi'
-import { myCoordinates, APIkey } from '../../utils/constants'
+
 
 function App() {
   const [weatherData, setWeatherData] = useState({
