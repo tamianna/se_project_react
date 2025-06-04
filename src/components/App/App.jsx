@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getWeather, filterWeatherData } from '../../utils/WeatherApi'
 import { myCoordinates, APIkey } from '../../utils/constants'
+import { Routes, Route } from 'react-router-dom'
 
 import './App.css'
 import Header from '../Header/Header'
@@ -72,7 +73,11 @@ function App() {
             isMobileMenuOpened={isMobileMenuOpened}
             setIsMobileMenuOpened={setIsMobileMenuOpened}
           />
-          <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+          <Routes>
+            <Route path="/se_project_react" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} />} />
+            <Route path="/se_project_react/profile" element={<p>profile page</p>} />
+          </Routes>
+          
         </div>
         <Footer />
 
