@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from '../Header/Header'
 import Main from '../Main/Main'
+import Profile from '../Profile/Profile.jsx'
 import Footer from '../Footer/Footer'
 import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import ItemModal from '../ItemModal/ItemModal'
@@ -75,7 +76,7 @@ function App() {
           />
           <Routes>
             <Route path="/se_project_react" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} />} />
-            <Route path="/se_project_react/profile" element={<p>profile page</p>} />
+            <Route path="/se_project_react/profile" element={<Profile />} />
           </Routes>
           
         </div>
