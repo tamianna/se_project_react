@@ -1,19 +1,32 @@
 .clothes-section {
-    max-width: 1015px;
+  max-width: 1015px;
 }
 
 .clothes-section_menu {
-    display: flex;
-    gap: 20px;
-    margin: 63px 0 16px;
+  display: flex;
+  gap: 20px;
+  margin: 63px 0 16px;
 }
 
 .clothes-section_title {
-    margin: 0;
+  margin: 0;
 }
 
 .clothes-section_button {
-    border: none;
-    background: transparent;
-    opacity: .6;
+  border: none;
+  background: transparent;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 425px) {
+  .clothes-section_menu {
+    justify-content: space-between;
+    margin-top: 0;
+  }
+}
+
+@media  screen and (max-width: 320px) {
+    .cards__lists {
+        justify-content: center;
+    }
 }

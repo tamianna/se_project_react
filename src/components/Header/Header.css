@@ -60,8 +60,7 @@
   }
 
   .header__date-and-location {
-    position: absolute;
-    top: 94px;
+    margin-left: 12px;
   }
 
   .header__add-clothes-btn {
