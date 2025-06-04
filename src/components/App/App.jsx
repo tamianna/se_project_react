@@ -8,7 +8,7 @@ import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import ItemModal from '../ItemModal/ItemModal'
-import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit'
+import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit.jsx'
 
 function App() {
   const [weatherData, setWeatherData] = useState({
