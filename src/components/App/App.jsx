@@ -50,6 +50,12 @@ function App() {
     setIsMobileMenuOpened(false)
   }
 
+  const handleToggleSwitchChange = () => {
+    currentTemperatureUnit === 'F'
+      ? setCurrentTemperatureUnit('C')
+      : setCurrentTemperatureUnit('F')
+  }
+
   const closeActiveModal = () => {
     setActiveModal('')
   }
