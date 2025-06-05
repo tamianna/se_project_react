@@ -1,5 +1,6 @@
 import './ItemModal.css'
 import previewCloseButton from '../../images/previewclosebutton.svg'
+import defaultImage from '../../images/defaultimage.jpg'
 
 function ItemModal({ activeModal, closeActiveModal, card }) {
   return (
@@ -16,7 +17,15 @@ function ItemModal({ activeModal, closeActiveModal, card }) {
             className="modal__close-icon"
           />
         </button>
-        <img src={card.imageUrl} alt={card.name} className="modal__image" />
+        <img
+          src={card.imageUrl}
+          alt={card.name}
+          className="modal__image"
+          onError={(e) => {
+            e.target.onerror = null
+            e.target.src = { defaultImage }
+          }}
+        />
         <div className="modal__footer">
           <p className="modal__caption">{card.name}</p>
           <p className="modal__weather">Weather: {card.weather}</p>
