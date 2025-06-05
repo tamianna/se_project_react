@@ -7,7 +7,7 @@ import ItemCard from '../ItemCard/ItemCard'
 import random from '../../images/random.svg'
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit'
 
-function Main({ weatherData, handleCardClick }) {
+function Main({ weatherData, handleCardClick, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext)
 
   return (
@@ -19,7 +19,7 @@ function Main({ weatherData, handleCardClick }) {
           {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__lists">
-          {defaultClothingItems
+          {clothingItems
             .filter((item) => {
               return item.weather === weatherData.type
             })

@@ -59,7 +59,8 @@ function App() {
   }
 
   const handleAddItemSubmit = (item) => {
-    setClothingItems([item, ...clothingItems])
+    const newItem = { ...item, _id: Date.now() }
+    setClothingItems([newItem, ...clothingItems])
     closeActiveModal()
   }
 
@@ -87,6 +88,7 @@ function App() {
                 <Main
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
                 />
               }
             />
