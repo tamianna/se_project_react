@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import ModalWithForm from '../ModalWithForm/ModalWithForm';
+import React, { useState, useEffect } from 'react'
+import ModalWithForm from '../ModalWithForm/ModalWithForm'
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
-  const [name, setName] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [weather, setWeather] = useState('');
+  const [name, setName] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
+  const [weather, setWeather] = useState('')
 
   useEffect(() => {
     if (isOpen) {
-      setName('');
-      setImageUrl('');
-      setWeather('');
+      setName('')
+      setImageUrl('')
+      setWeather('')
     }
-  }, [isOpen]);
+  }, [isOpen])
 
-  const handleNameChange = (e) => setName(e.target.value);
-  const handleImageUrlChange = (e) => setImageUrl(e.target.value);
-  const handleWeatherChange = (e) => setWeather(e.target.id);
+  const handleNameChange = (e) => setName(e.target.value)
+  const handleImageUrlChange = (e) => setImageUrl(e.target.value)
+  const handleWeatherChange = (e) => setWeather(e.target.id)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onAddItem({ name, imageUrl, weather });
-  };
+    e.preventDefault()
+    onAddItem({ name, imageUrl, weather })
+  }
 
   return (
     <ModalWithForm
@@ -54,9 +54,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
         />
       </label>
       <fieldset className="modal__radio-buttons">
-        <legend className="modal__legend">
-          Select the weather type:
-        </legend>
+        <legend className="modal__legend">Select the weather type:</legend>
         <label htmlFor="hot" className="modal__label modal__radio-label">
           <input
             id="hot"
@@ -92,7 +90,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
         </label>
       </fieldset>
     </ModalWithForm>
-  );
-};
+  )
+}
 
-export default AddItemModal;
+export default AddItemModal
