@@ -13,15 +13,27 @@ function DeleteConfirmationModal({ isOpen, onClose, onConfrim }) {
             This action is irreversible.
           </p>
         </div>
-        <button type="button" className="modal__confirmation_close-button">
+        <button
+          type="button"
+          className="modal__confirmation_close-button"
+          onClick={onClose}
+        >
           <img src={closeButton} alt="X, for close button." />
         </button>
         <form className="modal__delete-form">
           <div className="modal__confirmation-buttons">
-            <button type="submit" className="modal__confirmation_delete-button">
+            <button
+              type="submit"
+              className="modal__confirmation_delete-button"
+              onClick={onConfrim}
+            >
               Yes, delete item
             </button>
-            <button type="button" className="modal__confirmation_cancel-button">
+            <button
+              type="button"
+              className="modal__confirmation_cancel-button"
+              onClick={onClose}
+            >
               Cancel
             </button>
           </div>
