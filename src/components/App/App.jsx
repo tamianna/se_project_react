@@ -84,6 +84,7 @@ function App() {
   const openConfirmationModal = (card) => {
     setCardToDelete(card)
     setIsDeleteModalOpen(true)
+    setActiveModal('')
   }
 
   return (
