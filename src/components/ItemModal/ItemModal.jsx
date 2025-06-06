@@ -2,7 +2,7 @@ import './ItemModal.css'
 import previewCloseButton from '../../images/previewclosebutton.svg'
 import defaultImage from '../../images/defaultimage.jpg'
 
-function ItemModal({ activeModal, closeActiveModal, card }) {
+function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
   return (
     <div className={`modal ${activeModal === 'preview' && 'modal_opened'}`}>
       <div className="modal__container modal__container_type_preview">
@@ -29,7 +29,11 @@ function ItemModal({ activeModal, closeActiveModal, card }) {
         <div className="modal__footer">
           <p className="modal__caption">{card.name}</p>
           <p className="modal__weather">Weather: {card.weather}</p>
-          <button type="button" className="modal__delete-button">
+          <button
+            type="button"
+            className="modal__delete-button"
+            onClick={() => onConfirmDelete(card)}
+          >
             Delete item
           </button>
         </div>
