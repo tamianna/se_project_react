@@ -29,6 +29,9 @@ function ItemModal({ activeModal, closeActiveModal, card }) {
         <div className="modal__footer">
           <p className="modal__caption">{card.name}</p>
           <p className="modal__weather">Weather: {card.weather}</p>
+          <button type="button" className="modal__delete-button">
+            Delete item
+          </button>
         </div>
       </div>
     </div>

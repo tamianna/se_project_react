@@ -12,12 +12,25 @@
   border-radius: 20px;
 }
 
+.modal__footer {
+  position: relative;
+}
+
 .modal__caption {
   margin: 20px 0 12px 32px;
 }
 
 .modal__weather {
   margin: 0 0 32px 32px;
+}
+
+.modal__delete-button {
+  border: none;
+  background: transparent;
+  color: #FF4D00;
+  position: absolute;
+  right: 32px;
+  top: 0;
 }
 
 @media screen and (max-width: 425px) {
