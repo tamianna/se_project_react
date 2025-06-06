@@ -1,7 +1,7 @@
 import './DeleteConfirmationModal.css'
 import closeButton from '../../images/confirmationclose.svg'
 
-function DeleteConfirmationModal({ isOpen, onClose, onConfrim }) {
+function DeleteConfirmationModal({ isOpen, onClose, onConfirm }) {
   return (
     <div className={`modal ${isOpen ? 'modal_opened' : ''}`}>
       <div className="modal__container modal__confirmation">
@@ -25,7 +25,7 @@ function DeleteConfirmationModal({ isOpen, onClose, onConfrim }) {
             <button
               type="submit"
               className="modal__confirmation_delete-button"
-              onClick={onConfrim}
+              onClick={onConfirm}
             >
               Yes, delete item
             </button>

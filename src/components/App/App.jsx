@@ -62,15 +62,18 @@ function App() {
   }
 
   const handleAddItemSubmit = (item) => {
-    const newItem = { ...item, _id: Date.now() }
+    const newItem = { ...item, _id: Date.now().toString() }
     setClothingItems([newItem, ...clothingItems])
     closeActiveModal()
   }
 
   const handleCardDelete = () => {
+    if (!cardToDelete || !cardToDelete._id) return
+
     const updatedItems = clothingItems.filter(
       (item) => item._id !== cardToDelete._id
     )
+
     setClothingItems(updatedItems)
     setIsDeleteModalOpen(false)
     setActiveModal('')
@@ -129,7 +132,7 @@ function App() {
         />
         <DeleteConfirmationModal
           isOpen={isDeleteModalOpen}
-          onClose={() => setIsDeleteModalOpen(false)}
+          onClose={closeActiveModal}
           onConfirm={handleCardDelete}
         />
       </CurrentTemperatureUnitContext.Provider>
