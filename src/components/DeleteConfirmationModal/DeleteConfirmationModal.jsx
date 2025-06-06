@@ -1,6 +1,6 @@
 import './DeleteConfirmationModal.css'
 
-function DeleteConfirmationModal() {
+function DeleteConfirmationModal({ isOpen, onClose, onConfrim}) {
   return (
     <div className={`modal ${isOpen ? 'modal_opened' : ''}`}>
       <div className="modal__container modal__container_type_delete">

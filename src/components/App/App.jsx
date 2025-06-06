@@ -25,6 +25,8 @@ function App() {
   const [currentDate, setCurrentDate] = useState('')
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false)
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F')
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+  const [cardToDelete, setCardToDelete] = useState(null)
 
   useEffect(() => {
     const today = new Date().toLocaleString('defualt', {
@@ -65,8 +67,23 @@ function App() {
     closeActiveModal()
   }
 
+  const handleCardDelete = () => {
+    const updatedItems = clothingItems.filter(
+      (item) => item._id !== cardToDelete._id
+    )
+    setClothingItems(updatedItems)
+    setIsDeleteModalOpen(false)
+    setActiveModal('')
+    setCardToDelete(null)
+  }
+
   const closeActiveModal = () => {
     setActiveModal('')
+  }
+
+  const openConfirmationModal = (card) => {
+    setCardToDelete(card)
+    setIsDeleteModalOpen(true)
   }
 
   return (
@@ -107,6 +124,11 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           closeActiveModal={closeActiveModal}
+        />
+        <DeleteConfirmationModal
+          isOpen={isDeleteModalOpen}
+          onClose={() => setIsDeleteModalOpen(false)}
+          onConfirm={handleCardDelete}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
