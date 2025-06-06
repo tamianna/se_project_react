@@ -9,6 +9,7 @@
   width: 100%;
   height: 498px;
   display: block;
+  object-fit: cover;
   border-radius: 20px;
 }
 
