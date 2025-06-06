@@ -11,6 +11,7 @@ import Footer from '../Footer/Footer'
 import AddItemModal from '../AddItemModal/AddItemModal.jsx'
 import ItemModal from '../ItemModal/ItemModal'
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit.jsx'
+import DeleteConfirmationModal from '../DeleteConfirmationModal/DeleteConfirmationModal.jsx'
 
 function App() {
   const [weatherData, setWeatherData] = useState({
