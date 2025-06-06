@@ -124,6 +124,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           closeActiveModal={closeActiveModal}
+          onConfirmDelete={openConfirmationModal}
         />
         <DeleteConfirmationModal
           isOpen={isDeleteModalOpen}
