@@ -116,3 +116,7 @@
   opacity: .3;
   pointer-events: none;
 }
+
+.modal__error {
+  color: #ff4d00;
+}
