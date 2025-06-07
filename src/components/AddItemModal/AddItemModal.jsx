@@ -92,7 +92,9 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           value={imageUrl}
           onChange={handleImageUrlChange}
         />
-        {errors.imageUrl && <span className="modal__error">{errors.imageUrl}</span>}
+        {errors.imageUrl && (
+          <span className="modal__error">{errors.imageUrl}</span>
+        )}
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
