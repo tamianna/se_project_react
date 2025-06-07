@@ -34,13 +34,17 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__lists">
-          {shuffledItems.map((item) => (
-            <ItemCard
-              key={item._id}
-              item={item}
-              onCardClick={handleCardClick}
-            />
-          ))}
+          {shuffledItems.length > 0 ? (
+            shuffledItems.map((item) => (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={handleCardClick}
+              />
+            ))
+          ) : (
+            <p>No items available for this weather.</p>
+          )}
         </ul>
         <button
           className="cards__random-button"
