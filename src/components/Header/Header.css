@@ -51,6 +51,7 @@
   display: flex;
   align-items: center;
   margin-left: auto;
+  position: relative;
 }
 
 @media screen and (max-width: 425px) {
@@ -88,16 +89,13 @@
   .header__mobile-toggle {
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 20px;
-    right: -14px;
     z-index: 9999;
   }
 
-  .header__mobile-icon {
-    position: relative;
-    right: 20px;
-    top: 20px;
+  .header__mobile-icon--open {
+    position: absolute;
+    top: 40px;
+    right: 5px;
   }
 
   .header__nav-container {
@@ -128,6 +126,16 @@
 }
 
 @media screen and (max-width: 320px) {
+  .header__mobile-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header__mobile-icon--open {
+    width: 21px;
+    height: 21px;
+  }
+
   .header__nav-container--open {
     width: 260px;
     height: 175px;

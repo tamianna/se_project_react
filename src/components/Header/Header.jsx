@@ -32,7 +32,7 @@ function Header({
         <img
           src={isMobileMenuOpened ? menuCloseIcon : menuOpenIcon}
           alt={isMobileMenuOpened ? 'Close menu' : 'Open menu'}
-          className="header__mobile-icon"
+          className={`header__mobile-icon ${isMobileMenuOpened ? 'header__mobile-icon--open' : ''}`}
         />
       </button>
 
@@ -48,7 +48,7 @@ function Header({
           + Add Clothes
         </button>
 
-        <Link to="/se_project_react/profile" className='header__link'>
+        <Link to="/se_project_react/profile" className="header__link">
           <div className="header__user-container">
             <p className="header__username">Terrence Tegegne</p>
             <img
