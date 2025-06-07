@@ -33,7 +33,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
   const handleImageUrlChange = (e) => {
     const value = e.target.value
     setImageUrl(value)
-    setErrors((pre) => ({ ...prev, imageUrl: validateImageUrl(value) }))
+    setErrors((prev) => ({ ...prev, imageUrl: validateImageUrl(value) }))
   }
 
   const handleWeatherChange = (e) => {
