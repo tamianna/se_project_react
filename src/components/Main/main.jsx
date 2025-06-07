@@ -43,7 +43,9 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
               />
             ))
           ) : (
-            <p>No items available for this weather.</p>
+            <p className="cards__lists_fallback-text">
+              No items available for this weather.
+            </p>
           )}
         </ul>
         <button

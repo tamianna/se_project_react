@@ -24,6 +24,10 @@
     margin-bottom: 20px;
   }
 
+  .cards__lists_fallback-text {
+    color: #ff4d00;
+  }
+
   .cards__random-button {
     visibility: visible;
     background-color: #000000;
@@ -37,6 +41,10 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+  }
+
+  .cards__random-button:hover {
+    cursor: pointer;
   }
 }
 
