@@ -1,13 +1,27 @@
 import './Main.css'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 
 import WeatherCard from '../WeatherCard/WeatherCard'
-import ItemCard from '../ItemCard/ItemCard'
+import ItemCard, { shuffleItems } from '../ItemCard/ItemCard'
 import random from '../../images/random.svg'
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit'
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext)
+
+  const filteredItems = clothingItems.filter(
+    (item) => item.weather === weatherData.type
+  )
+
+  const [shuffledItems, setShuffledItems] = useState([])
+
+  useEffect(() => {
+    setShuffledItems(filteredItems)
+  }, [weatherData, clothingItems])
+
+  const handleRandomClick = () => {
+    setShuffledItems(shuffleItems(filteredItems))
+  }
 
   return (
     <main>
