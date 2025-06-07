@@ -1,6 +1,5 @@
 import './Main.css'
 import { useContext } from 'react'
-import { defaultClothingItems } from '../../utils/constants'
 
 import WeatherCard from '../WeatherCard/WeatherCard'
 import ItemCard from '../ItemCard/ItemCard'

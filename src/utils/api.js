@@ -1,9 +1,34 @@
 const baseUrl = 'http://localhost:3001';
 
-function getItems() {
-    return fetch(`${baseUrl}/items`).then((res) => {
-      return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);  
-    });
+const _checkResponse = (res) => {
+    if (res.ok) {
+      return res.json();
+    }
+
+    return Promise.reject(`Error: ${res.status}`);
 }
 
-export { getItems };
+// GET all items
+const getItems = () => {
+  return fetch(`${baseUrl}/items`).then(_checkResponse)
+};
+
+// POST a new item
+const addItem = (item) => {
+  return fetch(`${baseUrl}/items`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(item),
+  }).then.then(_checkResponse)
+};
+
+// DELETE an item by ID
+const deleteItem = (itemId) => {
+  return fetch(`${baseUrl}/items/${itemId}`, {
+    method: 'DELETE',
+  }).then(_checkResponse)
+};
+
+export default { getItems, addItem, deleteItem}

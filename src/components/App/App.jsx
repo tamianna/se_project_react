@@ -12,6 +12,7 @@ import AddItemModal from '../AddItemModal/AddItemModal.jsx'
 import ItemModal from '../ItemModal/ItemModal'
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit.jsx'
 import DeleteConfirmationModal from '../DeleteConfirmationModal/DeleteConfirmationModal.jsx'
+import { getItems, addItem, deleteItem } from '../../utils/api.js'
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -43,6 +44,14 @@ function App() {
         setWeatherData(filteredData)
       })
       .catch(console.error)
+  }, [])
+
+  useEffect(() => {
+    getItems() 
+    .then((data) => {
+      clothingItems(data)
+    })
+    .catch(console.error);
   }, [])
 
   const handleCardClick = (card) => {
