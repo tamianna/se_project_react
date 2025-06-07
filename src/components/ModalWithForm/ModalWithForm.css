@@ -114,4 +114,5 @@
 
 .modal__add-button_inactive {
   opacity: .3;
+  pointer-events: none;
 }
