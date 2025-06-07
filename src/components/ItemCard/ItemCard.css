@@ -32,4 +32,8 @@
   .card {
     width: 164px;
   }
+
+  .card__image {
+    height: 164px;
+  }
 }
