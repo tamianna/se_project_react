@@ -32,21 +32,19 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__lists">
-          {clothingItems
-            .filter((item) => {
-              return item.weather === weatherData.type
-            })
-            .map((item) => {
-              return (
-                <ItemCard
-                  key={item._id}
-                  item={item}
-                  onCardClick={handleCardClick}
-                />
-              )
-            })}
+          {shuffledItems.map((item) => {
+            <ItemCard
+              key={item._id}
+              item={item}
+              onCardClick={handleCardClick}
+            />
+          })}
         </ul>
-        <button className="cards__random-button">
+        <button
+          className="cards__random-button"
+          type="button"
+          onClick={handleRandomClick}
+        >
           <img src={random} alt="Random icon." className="random-icon" />
           Randomize
         </button>
