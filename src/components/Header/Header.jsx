@@ -20,7 +20,7 @@ function Header({
 
   return (
     <header className="header">
-      <Link to="/se_project_react">
+      <Link to="/">
         <img className="header__logo" src={headerLogo} alt="WWTR logo." />
       </Link>
       <p className="header__date-and-location">
@@ -48,7 +48,7 @@ function Header({
           + Add Clothes
         </button>
 
-        <Link to="/se_project_react/profile" className="header__link">
+        <Link to="/profile" className="header__link">
           <div className="header__user-container">
             <p className="header__username">Terrence Tegegne</p>
             <img
