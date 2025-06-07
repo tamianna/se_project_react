@@ -4,7 +4,7 @@ import {
   validateName,
   validateImageUrl,
   validateWeather,
-  isFormValid
+  isFormValid,
 } from '../../scripts/validation'
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
