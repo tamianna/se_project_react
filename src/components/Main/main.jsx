@@ -10,7 +10,9 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext)
 
   const filteredItems = clothingItems.filter(
-    (item) => item.weather === weatherData.type
+    (item) =>
+      item.weather?.toLowerCase() === weatherData.type?.toLowerCase() ||
+      !weatherData.type
   )
 
   const [shuffledItems, setShuffledItems] = useState([])
@@ -32,13 +34,13 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__lists">
-          {shuffledItems.map((item) => {
+          {shuffledItems.map((item) => (
             <ItemCard
               key={item._id}
               item={item}
               onCardClick={handleCardClick}
             />
-          })}
+          ))}
         </ul>
         <button
           className="cards__random-button"
