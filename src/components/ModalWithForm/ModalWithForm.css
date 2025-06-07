@@ -111,3 +111,7 @@
   background-color: #00000099;
   cursor: pointer;
 }
+
+.modal__add-button_inactive {
+  opacity: .3;
+}

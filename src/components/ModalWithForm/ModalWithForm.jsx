@@ -30,8 +30,8 @@ function ModalWithForm({
           {children}
           <button
             type="submit"
-            className={`modal__save-button ${
-              isSubmitDisabled ? 'modal__save-button_inactive' : ''
+            className={`modal__add-button ${
+              isSubmitDisabled ? 'modal__add-button_inactive' : ''
             }`}
             disabled={isSubmitDisabled}
           >
