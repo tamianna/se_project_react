@@ -47,11 +47,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    getItems() 
-    .then((data) => {
-      clothingItems(data)
-    })
-    .catch(console.error);
+    getItems()
+      .then((data) => {
+        setClothingItems(data)
+      })
+      .catch(console.error)
   }, [])
 
   const handleCardClick = (card) => {
@@ -71,22 +71,29 @@ function App() {
   }
 
   const handleAddItemSubmit = (item) => {
-    const newItem = { ...item, _id: Date.now().toString() }
-    setClothingItems([newItem, ...clothingItems])
-    closeActiveModal()
+    addItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems])
+        closeActiveModal()
+      })
+      .catch(console.error)
   }
 
   const handleCardDelete = () => {
     if (!cardToDelete || !cardToDelete._id) return
 
-    const updatedItems = clothingItems.filter(
-      (item) => item._id !== cardToDelete._id
-    )
+    deleteItem(cardToDelete._id)
+      .then(() => {
+        const updatedItems = clothingItems.filter(
+          (item) => item._id !== cardToDelete._id
+        )
 
-    setClothingItems(updatedItems)
-    setIsDeleteModalOpen(false)
-    setActiveModal('')
-    setCardToDelete(null)
+        setClothingItems(updatedItems)
+        setIsDeleteModalOpen(false)
+        setActiveModal('')
+        setCardToDelete(null)
+      })
+      .catch(console.error)
   }
 
   const closeActiveModal = () => {
