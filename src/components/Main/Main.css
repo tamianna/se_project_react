@@ -42,7 +42,7 @@
 
 @media screen and (min-width: 375px) and (max-width: 375px) {
   .cards__text {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .cards__lists {
@@ -52,6 +52,6 @@
 
 @media screen and (max-width: 320px) {
   .cards__text {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
