@@ -64,6 +64,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
       closeActiveModal={onCloseModal}
       onSubmit={handleSubmit}
       isSubmitDisabled={!formIsVaild}
+      noValidate
     >
       <label htmlFor="name" className="modal__label">
         Name
