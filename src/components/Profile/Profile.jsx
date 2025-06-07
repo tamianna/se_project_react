@@ -3,14 +3,17 @@ import SideBar from '../SideBar/SideBar'
 import './Profile.css'
 import React from 'react'
 
-function Profile() {
+function Profile({ clothingItems, handleCardClick }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
         <SideBar />
       </section>
       <section className="profile__clothes">
-        <ClothesSection />
+        <ClothesSection
+          clothingItems={clothingItems}
+          handleCardClick={handleCardClick}
+        />
       </section>
     </div>
   )
