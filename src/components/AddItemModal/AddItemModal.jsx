@@ -4,6 +4,7 @@ import {
   validateName,
   validateImageUrl,
   validateWeather,
+  isFormValid
 } from '../../scripts/validation'
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
@@ -11,6 +12,8 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
   const [imageUrl, setImageUrl] = useState('')
   const [weather, setWeather] = useState('')
   const [errors, setErrors] = useState({})
+
+  const formIsVaild = isFormValid(name, imageUrl, weather)
 
   useEffect(() => {
     if (isOpen) {
@@ -60,6 +63,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
       isOpen={isOpen}
       closeActiveModal={onCloseModal}
       onSubmit={handleSubmit}
+      isSubmitDisabled={!formIsVaild}
     >
       <label htmlFor="name" className="modal__label">
         Name
