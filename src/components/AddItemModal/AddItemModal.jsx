@@ -7,7 +7,7 @@ import {
   isFormValid,
 } from '../../scripts/validation'
 
-const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
+function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
   const [name, setName] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [weather, setWeather] = useState('')
