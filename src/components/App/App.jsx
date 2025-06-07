@@ -98,6 +98,7 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal('')
+    setIsDeleteModalOpen(false)
   }
 
   const openConfirmationModal = (card) => {
