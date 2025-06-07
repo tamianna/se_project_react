@@ -44,6 +44,10 @@
   .cards__text {
     font-size: 19px;
   }
+
+  .cards__lists {
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 320px) {
