@@ -1,25 +1,55 @@
 import React, { useState, useEffect } from 'react'
 import ModalWithForm from '../ModalWithForm/ModalWithForm'
+import {
+  validateName,
+  validateImageUrl,
+  validateWeather,
+} from '../../scripts/validation'
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
   const [name, setName] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [weather, setWeather] = useState('')
+  const [errors, setErrors] = useState({})
 
   useEffect(() => {
     if (isOpen) {
       setName('')
       setImageUrl('')
       setWeather('')
+      setErrors({})
     }
   }, [isOpen])
 
-  const handleNameChange = (e) => setName(e.target.value)
-  const handleImageUrlChange = (e) => setImageUrl(e.target.value)
-  const handleWeatherChange = (e) => setWeather(e.target.id)
+  const handleNameChange = (e) => {
+    const value = e.target.value
+    setName(value)
+    setErrors((prev) => ({ ...prev, name: validateName(value) }))
+  }
+
+  const handleImageUrlChange = (e) => {
+    const value = e.target.value
+    setImageUrl(value)
+    setErrors((pre) => ({ ...prev, imageUrl: validateImageUrl(value) }))
+  }
+
+  const handleWeatherChange = (e) => {
+    const value = e.target.id
+    setWeather(value)
+    setErrors((prev) => ({ ...prev, weather: validateWeather(value) }))
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const nameErr = validateName(name)
+    const urlErr = validateImageUrl(imageUrl)
+    const weatherErr = validateWeather(weather)
+
+    if (nameErr || urlErr || weatherErr) {
+      setErrors({ name: nameErr, imageUrl: urlErr, weather: weatherErr })
+      return
+    }
+
     onAddItem({ name, imageUrl, weather })
   }
 
@@ -44,6 +74,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           value={name}
           onChange={handleNameChange}
         />
+        {errors.name && <span className="modal__error">{errors.name}</span>}
       </label>
       <label htmlFor="image" className="modal__label">
         Image
@@ -56,6 +87,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           value={imageUrl}
           onChange={handleImageUrlChange}
         />
+        {errors.name && <span className="modal__error">{errors.imageUrl}</span>}
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
@@ -92,6 +124,9 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           />
           <span>Cold</span>
         </label>
+        {errors.weather && (
+          <span className="modal__error">{errors.weather}</span>
+        )}
       </fieldset>
     </ModalWithForm>
   )
