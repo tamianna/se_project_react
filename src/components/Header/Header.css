@@ -97,7 +97,7 @@
   .header__mobile-icon--open {
     position: absolute;
     top: 40px;
-    right: 5px;
+    right: 11px;
   }
 
   .header__nav-container {
@@ -112,7 +112,8 @@
     top: 18px;
     background-color: white;
     border-radius: 12px;
-    width: 365px;
+    max-width: 365px;
+    width: 92%;
     height: 185px;
     padding: 18px 16px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -122,7 +123,7 @@
 
 @media screen and (min-width: 375px) and (max-width: 375px) {
   .header__nav-container--open {
-    width: 316px;
+    width: 91%;
     height: 180px;
   }
 }
@@ -139,7 +140,7 @@
   }
 
   .header__nav-container--open {
-    width: 260px;
+    width: 89%;
     height: 175px;
   }
 }
