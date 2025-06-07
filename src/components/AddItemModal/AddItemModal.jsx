@@ -37,6 +37,9 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           id="name"
           type="text"
           placeholder="Name"
+          minLength={2}
+          maxLength={40}
+          required
           className="modal__input"
           value={name}
           onChange={handleNameChange}
@@ -47,6 +50,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
         <input
           id="image"
           type="url"
+          required
           className="modal__input"
           placeholder="Image URL"
           value={imageUrl}
