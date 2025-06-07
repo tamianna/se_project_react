@@ -119,4 +119,5 @@
 
 .modal__error {
   color: #ff4d00;
+  display: block;
 }
