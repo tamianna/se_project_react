@@ -10,10 +10,17 @@ This repository contains the **frontend** of the WTWR application, built with **
 
 The WTWR app helps users decide what to wear by analyzing the current weather and suggesting appropriate clothing items. This frontend application:
 
-- Fetches and displays weather data using a Weather API
-- Dynamically renders weather-specific clothing recommendations
-- Includes modal forms for adding or viewing clothing items
-- Adapts seamlessly to screen sizes from **1440px** to **320px**
+- Fetches real-time weather data using a Weather API
+
+- Dynamically renders clothing recommendations based on weather and temperature
+
+- Allows users to add or delete clothing items via modals with confirmation and validation
+
+- Supports user profile management and navigation
+
+- Offers a toggle between Fahrenheit and Celsius
+
+- Includes a mock backend for local development
 
 ---
 
@@ -25,13 +32,17 @@ The WTWR app helps users decide what to wear by analyzing the current weather an
 
 ## 🚀 Features
 
-- 📡 Fetches real-time weather data
-- 👕 Clothing recommendations based on weather
-- 🧩 Modular component structure with React
-- 📱 Responsive design from 1440px down to 320px
-    - Flexbox and media queries ensure a consistent and adaptive UI across all devices.
-- 💡 Add new clothing items
-- 🔍 View clothing item details in a modal
+- 📡 Real-time Weather Data: Fetched from an external Weather API.
+ - 🌡️ Temperature Toggle: Switch between Fahrenheit and Celsius.
+ - 👕 Clothing Recommendations: Shown dynamically based on weather.
+- ➕ Add Item Modal: Add clothing items with client-side validation.
+- ❌ Delete with Confirmation: Remove items via confirmation modal.
+ - 👤 Profile Component: View and update user profile data.
+ - 📂 Navigation Links: Navigate between homepage (/) and user profile (/profile).
+ - 🧩 Modular React Components: Clean, maintainable, and reusable structure.
+ - 📱 Responsive Design: Seamless UI on all devices via Flexbox and media queries.
+ - 🧪 Validation: Ensures forms are complete and error-free before submission.
+ - 🗄️ Mock Server: Local development powered by JSON Server.
 - 📂 Mobile nav menu toggle
 
 ---
@@ -42,6 +53,8 @@ The WTWR app helps users decide what to wear by analyzing the current weather an
 - **Vite** (for fast dev build and hot reloading)
 - **CSS** (custom styles for responsive layouts)
 - **Weather API** (external API to fetch current weather)
+ - **JSON Server** (mock backend to simulate API interaction)
+ - **React Router** (navigation between views)
 
 ---
 
@@ -64,5 +77,23 @@ The WTWR app helps users decide what to wear by analyzing the current weather an
 
 ### 📋 Mobile Navigation Menu
 ![Mobile Nav Menu](./src/images/screenshots/nav-menu.png)
+
+### 🌡️ Temperature Toggle Switch  
+![Toggle Switch](./src/images/screenshots/toggle-switch.png)
+
+### 👤 Profile Component  
+![Profile Component](./src/images/screenshots/profile.png)
+
+### 🗑️ Delete Button  
+![Delete Button](./src/images/screenshots/delete-button.png)
+
+### ❗ Delete Confirmation Modal  
+![Delete Confirmation](./src/images/screenshots/delete-confirmation.png)
+
+### 🔄 Updated Mobile Navigation  
+![Updated Mobile Navigation](./src/images/screenshots/updated-mobile-nav.png)
+
+### 👤 Mobile Profile View  
+![Mobile Profile View](./src/images/screenshots/mobile-profile.png)
 
 ---
