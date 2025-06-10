@@ -8,13 +8,8 @@ import {
 import { useFormAndValidation } from '../hooks/useFormAndValidation'
 
 function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
-  const { 
-    values, 
-    handleChange, 
-    errors, 
-    isValid, 
-    resetForm, 
-    setErrors } = useFormAndValidation()
+  const { values, handleChange, errors, isValid, resetForm, setErrors } =
+    useFormAndValidation()
 
   useEffect(() => {
     if (isOpen) {
