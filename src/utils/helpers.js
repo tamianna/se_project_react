@@ -1,4 +1,4 @@
-export function handleSubmitButton(setLoading, asyncAction) {
+export function handleSubmitButton(setIsLoading, asyncAction) {
   setIsLoading(true)
   return asyncAction()
     .catch(console.error)

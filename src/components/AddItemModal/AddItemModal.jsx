@@ -7,7 +7,7 @@ import {
 } from '../../scripts/validation'
 import { useFormAndValidation } from '../hooks/useFormAndValidation'
 
-function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
+function AddItemModal({ isOpen, onAddItem, onCloseModal, isLoading }) {
   const { values, handleChange, errors, isValid, resetForm, setErrors } =
     useFormAndValidation()
 
@@ -38,7 +38,7 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
   return (
     <ModalWithForm
       title="New garment"
-      buttonText="Add garment"
+      buttonText={isLoading ? 'Adding...' : 'Add garment'}
       isOpen={isOpen}
       closeActiveModal={onCloseModal}
       onSubmit={handleSubmit}
