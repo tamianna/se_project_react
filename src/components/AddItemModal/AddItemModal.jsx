@@ -5,7 +5,7 @@ import {
   validateImageUrl,
   validateWeather,
 } from '../../scripts/validation'
-import { useFormAndValidation } from '../hooks/useFormAndValidation'
+import { useFormAndValidation } from '../../hooks/useFormAndValidation'
 
 function AddItemModal({ isOpen, onAddItem, onCloseModal, isLoading }) {
   const { values, handleChange, errors, isValid, resetForm, setErrors } =
