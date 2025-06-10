@@ -18,6 +18,8 @@ export const Modal = ({ name, onClose, children }) => {
     }
   };
 
+  if (!isOpen) return null;
+
   return (
     <div className={`modal modal_type_${name} modal_opened`} onClick={handleOverlay}>
       <div className="modal__container">
