@@ -90,7 +90,7 @@ function App() {
 
         setClothingItems(updatedItems)
         setIsDeleteModalOpen(false)
-        setActiveModal('')
+        closeActiveModal
         setCardToDelete(null)
       })
       .catch(console.error)
@@ -104,7 +104,7 @@ function App() {
   const openConfirmationModal = (card) => {
     setCardToDelete(card)
     setIsDeleteModalOpen(true)
-    setActiveModal('')
+    closeActiveModal
   }
 
   return (
