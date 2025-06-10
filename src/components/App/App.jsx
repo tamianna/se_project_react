@@ -74,12 +74,27 @@ function App() {
       : setCurrentTemperatureUnit('F')
   }
 
-  const handleAddItemSubmit = (item) => {
-    handleSubmitButton(setIsLoading, () =>
-      addItem(item).then((newItem) => {
-        setClothingItems([newItem, ...clothingItems])
-        closeActiveModal()
-      })
+  const handleAddItemSubmit = (item, e) => {
+    handleSubmitButton(
+      setIsLoading,
+      () =>
+        new Promise((resolve, reject) => {
+          addItem(item)
+            .then((newItem) => {
+              setClothingItems([newItem, ...clothingItems])
+              closeActiveModal()
+              setTimeout(resolve, 500)
+            })
+            .catch((err) => {
+              console.error(err)
+              reject(err)
+            })
+        }),
+      {
+        event: e,
+        loadingText: 'Adding...',
+        resetForm: true,
+      }
     )
   }
 
@@ -87,26 +102,31 @@ function App() {
     e.preventDefault()
     if (!cardToDelete || !cardToDelete._id) return
 
-    handleSubmitButton(setIsDeleting, (evt) =>
-      deleteItem(cardToDelete._id)
-        .then(
-          () => {
-            const updatedItems = clothingItems.filter(
-              (item) => item._id !== cardToDelete._id
-            )
-
-            setClothingItems(updatedItems)
-            setIsDeleteModalOpen(false)
-            closeActiveModal()
-            setCardToDelete(null)
-          },
-          {
-            event: evt,
-            loadingText: 'Deleting...',
-            resetForm: true,
-          }
-        )
-        .catch(console.error)
+    handleSubmitButton(
+      setIsDeleting,
+      () =>
+        new Promise((resolve, reject) => {
+          deleteItem(cardToDelete._id)
+            .then(() => {
+              const updatedItems = clothingItems.filter(
+                (item) => item._id !== cardToDelete._id
+              )
+              setClothingItems(updatedItems)
+              setIsDeleteModalOpen(false)
+              closeActiveModal()
+              setCardToDelete(null)
+              setTimeout(resolve, 500)
+            })
+            .catch((err) => {
+              console.error(err)
+              reject(err)
+            })
+        }),
+      {
+        event: e,
+        loadingText: 'Deleting...',
+        resetForm: false,
+      }
     )
   }
 
