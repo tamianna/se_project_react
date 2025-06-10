@@ -1,5 +1,5 @@
 import './ModalWithForm.css'
-import closeButton from '../../images/closebutton.svg'
+import { Modal } from '../Modal/Modal'
 
 function ModalWithForm({
   children,
@@ -11,35 +11,21 @@ function ModalWithForm({
   isSubmitDisabled = false,
 }) {
   return (
-    <div className={`modal ${isOpen ? 'modal_opened' : ''}`}>
-      <div className="modal__container">
-        <h2 className="modal__title">{title}</h2>
+    <Modal name="form" isOpen={isOpen} onClose={closeActiveModal}>
+      <h2 className="modal__title">{title}</h2>
+      <form className="modal__form" onSubmit={onSubmit} noValidate>
+        {children}
         <button
-          onClick={closeActiveModal}
-          type="button"
-          className="modal__close-button"
+          type="submit"
+          className={`modal__add-button ${
+            isSubmitDisabled ? 'modal__add-button_inactive' : ''
+          }`}
+          disabled={isSubmitDisabled}
         >
-          <img
-            src={closeButton}
-            alt="Close button, an X."
-            className="modal__close-icon"
-          />
+          {buttonText}
         </button>
-
-        <form className="modal__form" onSubmit={onSubmit} noValidate>
-          {children}
-          <button
-            type="submit"
-            className={`modal__add-button ${
-              isSubmitDisabled ? 'modal__add-button_inactive' : ''
-            }`}
-            disabled={isSubmitDisabled}
-          >
-            {buttonText}
-          </button>
-        </form>
-      </div>
-    </div>
+      </form>
+    </Modal>
   )
 }
 
