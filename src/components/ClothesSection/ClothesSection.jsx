@@ -1,15 +1,18 @@
 import './ClothesSection.css'
-import React from 'react'
 import ItemCard from '../ItemCard/ItemCard'
 
-function ClothesSection({ handleCardClick, clothingItems }) {
+function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
   const noItems = !clothingItems || clothingItems.length === 0
 
   return (
     <div className="clothes-section">
       <div className="clothes-section_menu">
         <p className="clothes-section_title">Your items</p>
-        <button type="button" className="clothes-section_button">
+        <button
+          type="button"
+          className="clothes-section_button"
+          onClick={handleAddClick}
+        >
           + Add new
         </button>
       </div>
