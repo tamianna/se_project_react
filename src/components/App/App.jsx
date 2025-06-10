@@ -29,6 +29,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F')
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [cardToDelete, setCardToDelete] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const today = new Date().toLocaleString('defualt', {
@@ -72,30 +73,32 @@ function App() {
   }
 
   const handleAddItemSubmit = (item) => {
-    addItem(item)
-      .then((newItem) => {
+    handleSubmitButton(setIsLoading, () =>
+      addItem(item).then((newItem) => {
         setClothingItems([newItem, ...clothingItems])
         closeActiveModal()
       })
-      .catch(console.error)
+    )
   }
 
   const handleCardDelete = (e) => {
     e.preventDefault()
     if (!cardToDelete || !cardToDelete._id) return
 
-    deleteItem(cardToDelete._id)
-      .then(() => {
-        const updatedItems = clothingItems.filter(
-          (item) => item._id !== cardToDelete._id
-        )
+    handleSubmitButton(setIsLoading, () =>
+      deleteItem(cardToDelete._id)
+        .then(() => {
+          const updatedItems = clothingItems.filter(
+            (item) => item._id !== cardToDelete._id
+          )
 
-        setClothingItems(updatedItems)
-        setIsDeleteModalOpen(false)
-        closeActiveModal()
-        setCardToDelete(null)
-      })
-      .catch(console.error)
+          setClothingItems(updatedItems)
+          setIsDeleteModalOpen(false)
+          closeActiveModal()
+          setCardToDelete(null)
+        })
+        .catch(console.error)
+    )
   }
 
   const closeActiveModal = () => {
@@ -150,6 +153,7 @@ function App() {
           isOpen={activeModal === 'add-garment'}
           onAddItem={handleAddItemSubmit}
           onCloseModal={closeActiveModal}
+          isLoading={isLoading}
         />
         <ItemModal
           activeModal={activeModal}
@@ -161,6 +165,7 @@ function App() {
           isOpen={isDeleteModalOpen}
           onClose={closeActiveModal}
           onConfirm={handleCardDelete}
+          isLoading={isLoading}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
