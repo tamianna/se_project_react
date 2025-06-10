@@ -79,7 +79,8 @@ function App() {
       .catch(console.error)
   }
 
-  const handleCardDelete = () => {
+  const handleCardDelete = (e) => {
+    e.preventDefault()
     if (!cardToDelete || !cardToDelete._id) return
 
     deleteItem(cardToDelete._id)
@@ -90,7 +91,7 @@ function App() {
 
         setClothingItems(updatedItems)
         setIsDeleteModalOpen(false)
-        closeActiveModal
+        closeActiveModal()
         setCardToDelete(null)
       })
       .catch(console.error)
@@ -104,7 +105,6 @@ function App() {
   const openConfirmationModal = (card) => {
     setCardToDelete(card)
     setIsDeleteModalOpen(true)
-    closeActiveModal
   }
 
   return (
