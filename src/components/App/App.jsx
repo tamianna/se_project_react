@@ -30,6 +30,8 @@ function App() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [cardToDelete, setCardToDelete] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [isCanceling, setIsCanceling] = useState(false)
 
   useEffect(() => {
     const today = new Date().toLocaleString('defualt', {
@@ -85,19 +87,44 @@ function App() {
     e.preventDefault()
     if (!cardToDelete || !cardToDelete._id) return
 
-    handleSubmitButton(setIsLoading, () =>
+    handleSubmitButton(setIsDeleting, (evt) =>
       deleteItem(cardToDelete._id)
-        .then(() => {
-          const updatedItems = clothingItems.filter(
-            (item) => item._id !== cardToDelete._id
-          )
+        .then(
+          () => {
+            const updatedItems = clothingItems.filter(
+              (item) => item._id !== cardToDelete._id
+            )
 
-          setClothingItems(updatedItems)
-          setIsDeleteModalOpen(false)
-          closeActiveModal()
-          setCardToDelete(null)
-        })
+            setClothingItems(updatedItems)
+            setIsDeleteModalOpen(false)
+            closeActiveModal()
+            setCardToDelete(null)
+          },
+          {
+            event: evt,
+            loadingText: 'Deleting...',
+            resetForm: true,
+          }
+        )
         .catch(console.error)
+    )
+  }
+
+  const handleCancel = (evt) => {
+    handleSubmitButton(
+      setIsCanceling,
+      () =>
+        new Promise((resolve) => {
+          setTimeout(() => {
+            closeActiveModal()
+            resolve()
+          }, 500)
+        }),
+      {
+        event: evt,
+        loadingText: 'Canceling...',
+        resetForm: false,
+      }
     )
   }
 
@@ -163,9 +190,10 @@ function App() {
         />
         <DeleteConfirmationModal
           isOpen={isDeleteModalOpen}
-          onClose={closeActiveModal}
+          onClose={handleCancel}
           onConfirm={handleCardDelete}
-          isLoading={isLoading}
+          isDeleting={isDeleting}
+          isCanceling={isCanceling}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>

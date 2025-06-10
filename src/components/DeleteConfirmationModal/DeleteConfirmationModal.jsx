@@ -1,9 +1,17 @@
 import './DeleteConfirmationModal.css'
 import closeButton from '../../images/confirmationclose.svg'
 
-function DeleteConfirmationModal({ isOpen, onClose, onConfirm, isLoading }) {
-  const deleteText = isLoading ? 'Deleting...' : 'Yes, delete item'
-  const cancelText = isLoading ? 'Canceling...' : 'Cancel'
+function DeleteConfirmationModal({
+  isOpen,
+  onClose,
+  onConfirm,
+  isDeleting,
+  isCanceling,
+}) {
+   const deleteButtonText = isDeleting ? 'Deleting...' : 'Yes, delete item';
+  const cancelButtonText = isCanceling ? 'Canceling...' : 'Cancel';
+
+  const isAnyLoading = isDeleting || isCanceling;
 
   return (
     <div className={`modal ${isOpen ? 'modal_opened' : ''}`}>
@@ -20,7 +28,7 @@ function DeleteConfirmationModal({ isOpen, onClose, onConfirm, isLoading }) {
           type="button"
           className="modal__confirmation_close-button"
           onClick={onClose}
-          disabled={isLoading}
+          disabled={isAnyLoading}
         >
           <img src={closeButton} alt="X, for close button." />
         </button>
@@ -30,17 +38,17 @@ function DeleteConfirmationModal({ isOpen, onClose, onConfirm, isLoading }) {
               type="submit"
               className="modal__confirmation_delete-button"
               onClick={onConfirm}
-              disabled={isLoading}
+              disabled={isAnyLoading}
             >
-              {deleteText}
+              {deleteButtonText}
             </button>
             <button
               type="button"
               className="modal__confirmation_cancel-button"
               onClick={onClose}
-              disabled={isLoading}
+              disabled={isAnyLoading}
             >
-              {cancelText}
+              {cancelButtonText}
             </button>
           </div>
         </form>
