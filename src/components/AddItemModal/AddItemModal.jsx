@@ -6,54 +6,39 @@ import {
   validateWeather,
   isFormValid,
 } from '../../scripts/validation'
+import { useFormAndValidation } from '../hooks/useFormAndValidation'
 
 function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
-  const [name, setName] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  const [weather, setWeather] = useState('')
-  const [errors, setErrors] = useState({})
-
-  const formIsVaild = isFormValid(name, imageUrl, weather)
+  const { 
+    values, 
+    handleChange, 
+    errors, 
+    isValid, 
+    resetForm, 
+    setErrors } = useFormAndValidation()
 
   useEffect(() => {
     if (isOpen) {
-      setName('')
-      setImageUrl('')
-      setWeather('')
-      setErrors({})
+      resetForm()
     }
-  }, [isOpen])
-
-  const handleNameChange = (e) => {
-    const value = e.target.value
-    setName(value)
-    setErrors((prev) => ({ ...prev, name: validateName(value) }))
-  }
-
-  const handleImageUrlChange = (e) => {
-    const value = e.target.value
-    setImageUrl(value)
-    setErrors((prev) => ({ ...prev, imageUrl: validateImageUrl(value) }))
-  }
-
-  const handleWeatherChange = (e) => {
-    const value = e.target.id
-    setWeather(value)
-    setErrors((prev) => ({ ...prev, weather: validateWeather(value) }))
-  }
+  }, [isOpen, resetForm])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const nameErr = validateName(name)
-    const urlErr = validateImageUrl(imageUrl)
-    const weatherErr = validateWeather(weather)
+    const nameErr = validateName(values.name)
+    const urlErr = validateImageUrl(values.imageUrl)
+    const weatherErr = validateWeather(values.weather || '')
 
     if (nameErr || urlErr || weatherErr) {
       setErrors({ name: nameErr, imageUrl: urlErr, weather: weatherErr })
       return
     }
 
-    onAddItem({ name, imageUrl, weather })
+    onAddItem({
+      name: values.name,
+      imageUrl: values.imageUrl,
+      weather: values.weather,
+    })
   }
 
   return (
@@ -63,21 +48,22 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
       isOpen={isOpen}
       closeActiveModal={onCloseModal}
       onSubmit={handleSubmit}
-      isSubmitDisabled={!formIsVaild}
+      isSubmitDisabled={!isValid}
       noValidate
     >
       <label htmlFor="name" className="modal__label">
         Name
         <input
           id="name"
+          name="name"
           type="text"
           placeholder="Name"
           minLength={2}
           maxLength={40}
           required
           className="modal__input"
-          value={name}
-          onChange={handleNameChange}
+          value={values.name}
+          onChange={handleChange}
         />
         {errors.name && <span className="modal__error">{errors.name}</span>}
       </label>
@@ -85,12 +71,13 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
         Image
         <input
           id="image"
+          name="imageUrl"
           type="url"
           required
           className="modal__input"
           placeholder="Image URL"
-          value={imageUrl}
-          onChange={handleImageUrlChange}
+          value={values.imageUrl}
+          onChange={handleChange}
         />
         {errors.imageUrl && (
           <span className="modal__error">{errors.imageUrl}</span>
@@ -98,39 +85,25 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
-        <label htmlFor="hot" className="modal__label modal__radio-label">
-          <input
-            id="hot"
-            name="weather"
-            type="radio"
-            className="modal__radio-input"
-            checked={weather === 'hot'}
-            onChange={handleWeatherChange}
-          />
-          <span>Hot</span>
-        </label>
-        <label htmlFor="warm" className="modal__label modal__radio-label">
-          <input
-            id="warm"
-            name="weather"
-            type="radio"
-            className="modal__radio-input"
-            checked={weather === 'warm'}
-            onChange={handleWeatherChange}
-          />
-          <span>Warm</span>
-        </label>
-        <label htmlFor="cold" className="modal__label modal__radio-label">
-          <input
-            id="cold"
-            name="weather"
-            type="radio"
-            className="modal__radio-input"
-            checked={weather === 'cold'}
-            onChange={handleWeatherChange}
-          />
-          <span>Cold</span>
-        </label>
+        {['hot', 'warm', 'cold'].map((temp) => (
+          <label
+            key={temp}
+            htmlFor={temp}
+            className="modal__label modal__radio-label"
+          >
+            <input
+              id={temp}
+              name="weather"
+              type="radio"
+              value={temp}
+              className="modal__radio-input"
+              checked={values.weather === temp}
+              onChange={handleChange}
+              required
+            />
+            <span>{temp[0].toUpperCase() + temp.slice(1)}</span>
+          </label>
+        ))}
         {errors.weather && (
           <span className="modal__error">{errors.weather}</span>
         )}
