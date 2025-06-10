@@ -4,7 +4,6 @@ import {
   validateName,
   validateImageUrl,
   validateWeather,
-  isFormValid,
 } from '../../scripts/validation'
 import { useFormAndValidation } from '../hooks/useFormAndValidation'
 
@@ -25,8 +24,8 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const nameErr = validateName(values.name)
-    const urlErr = validateImageUrl(values.imageUrl)
+    const nameErr = validateName(values.name || '')
+    const urlErr = validateImageUrl(values.imageUrl || '')
     const weatherErr = validateWeather(values.weather || '')
 
     if (nameErr || urlErr || weatherErr) {
@@ -62,7 +61,7 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
           maxLength={40}
           required
           className="modal__input"
-          value={values.name}
+          value={values.name || ''}
           onChange={handleChange}
         />
         {errors.name && <span className="modal__error">{errors.name}</span>}
@@ -76,7 +75,7 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
           required
           className="modal__input"
           placeholder="Image URL"
-          value={values.imageUrl}
+          value={values.imageUrl || ''}
           onChange={handleChange}
         />
         {errors.imageUrl && (
