@@ -1,4 +1,4 @@
-import { _checkResponse } from "./api"
+import { _checkResponse } from './api'
 
 const getWeatherType = (temperature) => {
   if (temperature >= 75) {
@@ -26,9 +26,9 @@ export const filterWeatherData = (data) => {
 
   result.temp = {
     F: data.main.temp,
-    C: Math.round((data.main.temp - 32) * 5 / 9),
+    C: Math.round(((data.main.temp - 32) * 5) / 9),
   }
-  
+
   result.type = getWeatherType(result.temp.F)
   result.condition = data.weather[0].main.toLowerCase()
   result.iconId = data.weather[0].id
