@@ -33,28 +33,14 @@
   font-size: 20px;
 }
 
-.fade-text {
-  display: inline-block;
-  opacity: 1;
-  transition: opacity 0.9s ease-in-out;
-}
-
 .modal__confirmation_delete-button {
   border: none;
   background: transparent;
   color: #ff4d00;
 }
 
-.modal__confirmation_delete-button:disabled .fade-text {
-  opacity: 0.6;
-}
-
 .modal__confirmation_cancel-button {
   border: none;
   background: transparent;
   color: #000000;
-}
-
-.modal__confirmation_cancel-button:disabled .fade-text {
-  opacity: 0.6;
 }

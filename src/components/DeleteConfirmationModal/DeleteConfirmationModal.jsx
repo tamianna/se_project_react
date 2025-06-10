@@ -32,7 +32,7 @@ function DeleteConfirmationModal({ isOpen, onClose, onConfirm, isLoading }) {
               onClick={onConfirm}
               disabled={isLoading}
             >
-              <span className="fade-text">{deleteText}</span>
+              {deleteText}
             </button>
             <button
               type="button"
@@ -40,7 +40,7 @@ function DeleteConfirmationModal({ isOpen, onClose, onConfirm, isLoading }) {
               onClick={onClose}
               disabled={isLoading}
             >
-              <span className="fade-text">{cancelText}</span>
+              {cancelText}
             </button>
           </div>
         </form>
