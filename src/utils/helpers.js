@@ -16,7 +16,7 @@ export function setButtonText(button, isLoading, defaultText, loadingText) {
 export function handleSubmitButton(
   setIsLoading,
   asyncAction,
-  { event = null, loadingText = 'Saving...', resetForm = true } = {}
+  { event = null, loadingText = 'Adding...', resetForm = true } = {}
 ) {
   if (event?.preventDefault) event.preventDefault()
 
