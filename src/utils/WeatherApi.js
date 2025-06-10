@@ -1,10 +1,4 @@
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json()
-  }
-
-  return Promise.reject(`Error: ${res.status}`)
-}
+import { _checkResponse } from "./api"
 
 const getWeatherType = (temperature) => {
   if (temperature >= 75) {
@@ -23,7 +17,7 @@ const isDay = ({ sunrise, sunset }, now) => {
 export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  ).then(checkResponse)
+  ).then(_checkResponse)
 }
 
 export const filterWeatherData = (data) => {

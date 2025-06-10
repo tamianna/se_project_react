@@ -31,4 +31,4 @@ const deleteItem = (itemId) => {
   }).then(_checkResponse)
 }
 
-export { getItems, addItem, deleteItem }
+export { getItems, addItem, deleteItem, _checkResponse }
