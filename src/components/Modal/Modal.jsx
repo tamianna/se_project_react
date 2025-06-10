@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import closeButton from '../../images/closebutton.svg'
 
-export const Modal = ({ name, isOpen, onClose, children }) => {
+export const Modal = ({ name, isOpen, onClose, children, containerClass }) => {
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
@@ -25,7 +25,7 @@ export const Modal = ({ name, isOpen, onClose, children }) => {
       className={`modal modal_type_${name} modal_opened`}
       onClick={handleOverlay}
     >
-      <div className="modal__container">
+      <div className={`modal__container ${containerClass}`}>
         {children}
         <button className="modal__close-button" type="button" onClick={onClose}>
           <img
