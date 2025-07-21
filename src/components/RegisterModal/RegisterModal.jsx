@@ -28,49 +28,64 @@ function RegisterModal({ isOpen, onClose, onRegister, isLoading }) {
       noValidate
     >
       <label className="modal__label">
-        Email
+        Email*
         <input
           type="email"
           name="email"
           className="modal__input"
           required
-          value={values.eamil || ''}
+          placeholder="Email"
+          value={values.email || ''}
           onChange={handleChange}
         />
+        {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
       <label className="modal__label">
-        Password
+        Password*
         <input
           type="password"
           name="password"
           className="modal__input"
           required
+          minLength={8}
+          maxLength={16}
+          placeholder="Password"
           value={values.password || ''}
           onChange={handleChange}
         />
+        {errors.password && (
+          <span className="modal__error">{errors.password}</span>
+        )}
       </label>
       <label className="modal__label">
-        Name
+        Name*
         <input
           type="text"
           name="name"
           className="modal__input"
           required
+          minLength={2}
+          maxLength={40}
+          placeholder="Name"
           value={values.name || ''}
           onChange={handleChange}
         />
         {errors.name && <span className="modal__error">{errors.name}</span>}
       </label>
       <label className="modal__label">
-        Avatar URL
+        Avatar URL*
         <input
           type="url"
-          name="avatar"
+          name="imageUrl"
           className="modal__input"
           required
-          value={values.avatar || ''}
+          placeholder="Avatar URL"
+          value={values.imageUrl || ''}
           onChange={handleChange}
         />
+        {errors.imageUrl && (
+          <span className="modal__error">{errors.imageUrl}</span>
+        )}
       </label>
     </ModalWithFrom>
   )
