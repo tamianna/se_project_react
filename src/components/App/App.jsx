@@ -62,6 +62,19 @@ function App() {
       .catch(console.error)
   }, [])
 
+  useEffect(() => {
+    const token = localStorage.getItem('jwt')
+    if (token) {
+      checkToken(token)
+        .then((user) => {
+          setIsLoggedIn(true)
+        })
+        .catch(() => {
+          localStorage.removeItem('jwt')
+        })
+    }
+  }, [])
+
   const handleCardClick = (card) => {
     setActiveModal('preview')
     setSelectedCard(card)
