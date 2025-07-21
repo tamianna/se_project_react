@@ -218,6 +218,18 @@ function App() {
           isDeleting={isDeleting}
           isCanceling={isCanceling}
         />
+        <RegisterModal
+          isOpen={activeModal === 'register'}
+          onClose={closeActiveModal}
+          onRegister={handleRegister}
+          isLoading={isLoading}
+        />
+        <LoginModal
+          isOpen={activeModal === 'login'}
+          onClose={closeActiveModal}
+          onLogin={handleLogin}
+          isLoading={isLoading}
+        />
       </CurrentTemperatureUnitContext.Provider>
     </div>
   )
