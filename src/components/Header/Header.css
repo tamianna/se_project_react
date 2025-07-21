@@ -54,6 +54,12 @@
   position: relative;
 }
 
+.header__auth-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0 20px 0 0;
+}
+
 @media screen and (max-width: 425px) {
   .header {
     flex-wrap: wrap;
