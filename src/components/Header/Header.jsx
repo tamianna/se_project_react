@@ -15,7 +15,7 @@ function Header({
   setIsMobileMenuOpened,
   isLoggedIn,
   handleSignUpClick,
-  handleSignInClick,
+  handleLoginClick,
 }) {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened)
@@ -43,24 +43,46 @@ function Header({
         className={`header__nav-container ${isMobileMenuOpened ? 'header__nav-container--open' : ''}`}
       >
         <ToggleSwitch />
-        <button
-          onClick={handleAddClick}
-          type="button"
-          className="header__add-clothes-btn"
-        >
-          + Add Clothes
-        </button>
 
-        <Link to="/profile" className="header__link">
-          <div className="header__user-container">
-            <p className="header__username">Terrence Tegegne</p>
-            <img
-              src={headerAvatar}
-              alt="Terrence Tegegne."
-              className="header__avatar"
-            />
+        {!isLoggedIn ? (
+          <div className="header__auth-btn">
+            <button
+              onClick={handleSignUpClick}
+              type="button"
+              className="header__auth-btn"
+            >
+              Sign Up
+            </button>
+            <button
+              onClick={handleLoginClick}
+              type="button"
+              className="header__auth-btn"
+            >
+              Log In
+            </button>
           </div>
-        </Link>
+        ) : (
+          <>
+            <button
+              onClick={handleAddClick}
+              type="button"
+              className="header__add-clothes-btn"
+            >
+              + Add Clothes
+            </button>
+
+            <Link to="/profile" className="header__link">
+              <div className="header__user-container">
+                <p className="header__username">Terrence Tegegne</p>
+                <img
+                  src={headerAvatar}
+                  alt="Terrence Tegegne."
+                  className="header__avatar"
+                />
+              </div>
+            </Link>
+          </>
+        )}
       </div>
     </header>
   )

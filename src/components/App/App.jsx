@@ -91,7 +91,7 @@ function App() {
     setIsMobileMenuOpened(false)
   }
 
-  const handleSignInClick = () => {
+  const handleLoginClick = () => {
     setActiveModal('login')
     setIsMobileMenuOpened(false)
   }
@@ -215,7 +215,7 @@ function App() {
           <Header
             handleAddClick={handleAddClick}
             handleSignUpClick={handleSignUpClick}
-            handleSignInClick={handleSignInClick}
+            handleLoginClick={handleLoginClick}
             currentDate={currentDate}
             weatherData={weatherData}
             isLoggedIn={isLoggedIn}
