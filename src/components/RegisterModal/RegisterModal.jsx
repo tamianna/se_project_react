@@ -87,6 +87,7 @@ function RegisterModal({ isOpen, onClose, onRegister, isLoading }) {
           <span className="modal__error">{errors.imageUrl}</span>
         )}
       </label>
+      <div className="modal__text">or Log In</div>
     </ModalWithFrom>
   )
 }

@@ -57,6 +57,7 @@ function LoginModal({ isOpen, onClose, onLogin, isLoading }) {
           <span className="modal__error">{errors.password}</span>
         )}
       </label>
+      <div className="modal__text">or Sign Up</div>
     </ModalWithFrom>
   )
 }
