@@ -86,6 +86,16 @@ function App() {
     setIsMobileMenuOpened(false)
   }
 
+  const handleSignUpClick = () => {
+    setActiveModal('register')
+    setIsMobileMenuOpened(false)
+  }
+
+  const handleSignInClick = () => {
+    setActiveModal('login')
+    setIsMobileMenuOpened(false)
+  }
+
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === 'F'
       ? setCurrentTemperatureUnit('C')
@@ -93,7 +103,6 @@ function App() {
   }
 
   const handleRegister = (data) => {
-    setActiveModal('register')
     setIsLoading(true)
     register(data)
       .then(() => handleLogin({ email: data.email, password: data.password }))
@@ -102,7 +111,6 @@ function App() {
   }
 
   const handleLogin = ({ email, password }) => {
-    setActiveModal('login')
     setIsLoading(true)
     authorize({ email, password })
       .then((res) => {
@@ -206,6 +214,8 @@ function App() {
         <div className="page__content">
           <Header
             handleAddClick={handleAddClick}
+            handleSignUpClick={handleSignUpClick}
+            handleSignInClick={handleSignInClick}
             currentDate={currentDate}
             weatherData={weatherData}
             isMobileMenuOpened={isMobileMenuOpened}
