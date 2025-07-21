@@ -117,11 +117,27 @@
   pointer-events: none;
 }
 
-.modal__text {
+.modal__add-button_type_signup {
+  width: 86px;
+}
+
+.modal__add-button_type_login {
+  width: 73px;
+}
+
+.modal__text-login {
   position: absolute;
-    left: 113px;
-    bottom: 44px;
-    opacity: .5;
+  left: 113px;
+  bottom: 44px;
+  opacity: 0.5;
+}
+
+.modal__text-register {
+  position: absolute;
+  left: 113px;
+  bottom: 44px;
+  opacity: 0.5;
+  padding: 0 10px;
 }
 
 .modal__error {

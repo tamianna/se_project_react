@@ -21,6 +21,7 @@ function RegisterModal({ isOpen, onClose, onRegister, isLoading }) {
     <ModalWithFrom
       title="Sign up"
       buttonText={isLoading ? 'Signing up...' : 'Sign up'}
+      formType="signup"
       isOpen={isOpen}
       closeActiveModal={onClose}
       onSubmit={handleSubmit}
@@ -87,7 +88,7 @@ function RegisterModal({ isOpen, onClose, onRegister, isLoading }) {
           <span className="modal__error">{errors.imageUrl}</span>
         )}
       </label>
-      <div className="modal__text">or Log In</div>
+      <div className="modal__text-register">or Log In</div>
     </ModalWithFrom>
   )
 }

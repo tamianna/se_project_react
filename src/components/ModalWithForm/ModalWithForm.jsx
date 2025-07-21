@@ -9,6 +9,7 @@ function ModalWithForm({
   closeActiveModal,
   onSubmit,
   isSubmitDisabled = false,
+  formType= 'default', 
 }) {
   return (
     <Modal name="form" isOpen={isOpen} onClose={closeActiveModal}>
@@ -19,7 +20,7 @@ function ModalWithForm({
           type="submit"
           className={`modal__add-button ${
             isSubmitDisabled ? 'modal__add-button_inactive' : ''
-          }`}
+          } modal__add-button_type_${formType}`}
           disabled={isSubmitDisabled}
         >
           {buttonText}

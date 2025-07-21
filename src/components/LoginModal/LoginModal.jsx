@@ -21,6 +21,7 @@ function LoginModal({ isOpen, onClose, onLogin, isLoading }) {
     <ModalWithFrom
       title="Log In"
       buttonText={isLoading ? 'Logging In...' : 'Log In'}
+      formType="login"
       isOpen={isOpen}
       closeActiveModal={onClose}
       onSubmit={handleSubmit}
@@ -57,7 +58,7 @@ function LoginModal({ isOpen, onClose, onLogin, isLoading }) {
           <span className="modal__error">{errors.password}</span>
         )}
       </label>
-      <div className="modal__text">or Sign Up</div>
+      <div className="modal__text-login">or Sign Up</div>
     </ModalWithFrom>
   )
 }
