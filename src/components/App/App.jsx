@@ -218,6 +218,7 @@ function App() {
             handleSignInClick={handleSignInClick}
             currentDate={currentDate}
             weatherData={weatherData}
+            isLoggedIn={isLoggedIn}
             isMobileMenuOpened={isMobileMenuOpened}
             setIsMobileMenuOpened={setIsMobileMenuOpened}
           />

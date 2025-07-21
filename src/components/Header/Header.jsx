@@ -13,6 +13,9 @@ function Header({
   weatherData,
   isMobileMenuOpened,
   setIsMobileMenuOpened,
+  isLoggedIn,
+  handleSignUpClick,
+  handleSignInClick,
 }) {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened)
