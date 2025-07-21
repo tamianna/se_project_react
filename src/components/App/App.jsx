@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import { handleSubmitButton } from '../../utils/helpers.js'
 import { getItems, addItem, deleteItem } from '../../utils/api.js'
 import { register, authorize, checkToken } from '../../utils/auth.js'
+import { Navigate } from 'react-router-dom'
 
 import './App.css'
 import Header from '../Header/Header'
@@ -224,11 +225,15 @@ function App() {
             <Route
               path="/profile"
               element={
-                <Profile
-                  clothingItems={clothingItems}
-                  handleCardClick={handleCardClick}
-                  handleAddClick={handleAddClick}
-                />
+                isLoggedIn ? (
+                  <Profile
+                    clothingItems={clothingItems}
+                    handleCardClick={handleCardClick}
+                    handleAddClick={handleAddClick}
+                  />
+                ) : (
+                  <Navigate to="/" replace />
+                )
               }
             />
           </Routes>
