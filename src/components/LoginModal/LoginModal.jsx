@@ -19,8 +19,8 @@ function LoginModal({ isOpen, onClose, onLogin, isLoading }) {
 
   return (
     <ModalWithFrom
-      title="Sign In"
-      buttonText={isLoading ? 'Signing in...' : 'Sign in'}
+      title="Log In"
+      buttonText={isLoading ? 'Logging In...' : 'Log In'}
       isOpen={isOpen}
       closeActiveModal={onClose}
       onSubmit={handleSubmit}
