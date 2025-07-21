@@ -35,6 +35,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
   const [isCanceling, setIsCanceling] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     const today = new Date().toLocaleString('defualt', {
@@ -75,6 +76,28 @@ function App() {
     currentTemperatureUnit === 'F'
       ? setCurrentTemperatureUnit('C')
       : setCurrentTemperatureUnit('F')
+  }
+
+  const handleRegister = (data) => {
+    setActiveModal('register')
+    setIsLoading(true)
+    register(data)
+      .then(() => handleLogin({ email: data.email, password: data.password }))
+      .catch(console.error)
+      .finally(() => setIsLoading(false))
+  }
+
+  const handleLogin = ({ email, password }) => {
+    setActiveModal('login')
+    setIsLoading(true)
+    authorize({ email, password })
+      .then((res) => {
+        localStorage.setItem('jwt', res.token)
+        setIsLoggedIn(true)
+        closeActiveModal()
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false))
   }
 
   const handleAddItemSubmit = (item, e) => {
