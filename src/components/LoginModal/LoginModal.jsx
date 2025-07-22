@@ -2,7 +2,13 @@ import React, { useEffect } from 'react'
 import ModalWithFrom from '../ModalWithForm/ModalWithForm'
 import { useFormAndValidation } from '../../hooks/useFormAndValidation'
 
-function LoginModal({ isOpen, onClose, onLogin, isLoading }) {
+function LoginModal({
+  isOpen,
+  onClose,
+  onLogin,
+  isLoading,
+  handleSignUpClick,
+}) {
   const { values, handleChange, isValid, errors, resetForm } =
     useFormAndValidation()
 
@@ -58,7 +64,13 @@ function LoginModal({ isOpen, onClose, onLogin, isLoading }) {
           <span className="modal__error">{errors.password}</span>
         )}
       </label>
-      <div className="modal__text-login">or Sign Up</div>
+      <button
+        onClick={handleSignUpClick}
+        type="button"
+        className="modal__login-btn"
+      >
+        or Sign Up
+      </button>
     </ModalWithFrom>
   )
 }

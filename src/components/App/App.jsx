@@ -282,6 +282,7 @@ function App() {
           onClose={closeActiveModal}
           onLogin={handleLogin}
           isLoading={isLoading}
+          handleSignUpClick={handleSignUpClick}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
