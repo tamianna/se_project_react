@@ -275,6 +275,7 @@ function App() {
           onClose={closeActiveModal}
           onRegister={handleRegister}
           isLoading={isLoading}
+          handleLoginClick={handleLoginClick}
         />
         <LoginModal
           isOpen={activeModal === 'login'}

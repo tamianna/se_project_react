@@ -2,7 +2,13 @@ import React, { useEffect } from 'react'
 import ModalWithFrom from '../ModalWithForm/ModalWithForm'
 import { useFormAndValidation } from '../../hooks/useFormAndValidation'
 
-function RegisterModal({ isOpen, onClose, onRegister, isLoading }) {
+function RegisterModal({
+  isOpen,
+  onClose,
+  onRegister,
+  isLoading,
+  handleLoginClick,
+}) {
   const { values, handleChange, errors, isValid, resetForm } =
     useFormAndValidation()
 
@@ -88,7 +94,13 @@ function RegisterModal({ isOpen, onClose, onRegister, isLoading }) {
           <span className="modal__error">{errors.imageUrl}</span>
         )}
       </label>
-      <div className="modal__text-register">or Log In</div>
+      <button
+        onClick={handleLoginClick}
+        type="button"
+        className="modal__register-btn"
+      >
+        or Log In
+      </button>
     </ModalWithFrom>
   )
 }
