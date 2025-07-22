@@ -35,6 +35,7 @@ function Header({
         />
       )
     }
+    //return first letter of name.
     const initial = currentUser?.name?.[0]?.toUpperCase() || '?'
     return (
       <div className="header__avatar header__avatar_placeholder">{initial}</div>
@@ -93,12 +94,8 @@ function Header({
 
             <Link to="/profile" className="header__link">
               <div className="header__user-container">
-                <p className="header__username">Terrence Tegegne</p>
-                <img
-                  src={headerAvatar}
-                  alt="Terrence Tegegne."
-                  className="header__avatar"
-                />
+                <p className="header__username">{currentUser?.name}</p>
+                {renderAvatar()}
               </div>
             </Link>
           </>
