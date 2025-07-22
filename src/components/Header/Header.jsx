@@ -1,11 +1,13 @@
 import './Header.css'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
 
 import headerLogo from '../../images/header-logo.svg'
 import headerAvatar from '../../images/header-avatar.svg'
 import menuOpenIcon from '../../images/menu-tab.svg'
 import menuCloseIcon from '../../images/menu-close.svg'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwith.jsx'
+import CurrentUserContext from '../../contexts/CurrentUserContext.jsx'
 
 function Header({
   handleAddClick,
@@ -17,8 +19,26 @@ function Header({
   handleSignUpClick,
   handleLoginClick,
 }) {
+  const currentUser = useContext(CurrentUserContext)
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened)
+  }
+
+  const renderAvatar = () => {
+    if (currentUser?.avatar) {
+      return (
+        <img
+          src={currentUser.avatar}
+          alt={`${currentUser.name}`}
+          className="header__avatar"
+        />
+      )
+    }
+    const initial = currentUser?.name?.[0]?.toUpperCase() || '?'
+    return (
+      <div className="header__avatar header__avatar_placeholder">{initial}</div>
+    )
   }
 
   return (
