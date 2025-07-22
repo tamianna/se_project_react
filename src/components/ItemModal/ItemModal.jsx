@@ -1,9 +1,16 @@
 import './ItemModal.css'
 import previewCloseButton from '../../images/previewclosebutton.svg'
 import defaultImage from '../../images/defaultimage.jpg'
+
 import { Modal } from '../Modal/Modal'
+import { useContext } from 'react'
+
+import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
+  const currentUser = useContext(CurrentUserContext)
+  const isOwn = card.owner === currentUser?._id 
+  
   return (
     <Modal
       name="preview"
