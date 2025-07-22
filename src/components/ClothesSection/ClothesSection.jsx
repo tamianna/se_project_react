@@ -29,7 +29,7 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
         <p className="clothes-section__empty">No clothing items found.</p>
       ) : (
         <ul className="cards__lists">
-          {clothingItems.map((item) => {
+          {userItems.map((item) => {
             return (
               <ItemCard
                 key={item._id}
