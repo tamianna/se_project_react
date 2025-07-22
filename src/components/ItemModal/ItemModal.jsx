@@ -9,8 +9,8 @@ import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
   const currentUser = useContext(CurrentUserContext)
-  const isOwn = card.owner === currentUser?._id 
-  
+  const isOwn = card.owner === currentUser?._id
+
   return (
     <Modal
       name="preview"
@@ -41,13 +41,15 @@ function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
       <div className="modal__footer">
         <p className="modal__caption">{card.name}</p>
         <p className="modal__weather">Weather: {card.weather}</p>
-        <button
-          type="button"
-          className="modal__delete-button"
-          onClick={() => onConfirmDelete(card)}
-        >
-          Delete item
-        </button>
+        {isOwn && (
+          <button
+            type="button"
+            className="modal__delete-button"
+            onClick={() => onConfirmDelete(card)}
+          >
+            Delete item
+          </button>
+        )}
       </div>
     </Modal>
   )
