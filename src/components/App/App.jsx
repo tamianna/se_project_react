@@ -12,7 +12,7 @@ import {
   removeCardLike,
 } from '../../utils/api.js'
 import { register, authorize, checkToken } from '../../utils/auth.js'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 import './App.css'
 import Header from '../Header/Header'
@@ -47,6 +47,8 @@ function App() {
   const [isCanceling, setIsCanceling] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState(null)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const today = new Date().toLocaleString('defualt', {
