@@ -119,6 +119,13 @@ function App() {
       : setCurrentTemperatureUnit('F')
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem('jwt')
+    setIsLoggedIn(false)
+    setCurrentUser(null)
+    navigate('/')
+  }
+
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem('jwt')
     const action = !isLiked ? addCardLike : removeCardLike
