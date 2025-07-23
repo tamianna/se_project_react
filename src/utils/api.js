@@ -31,6 +31,7 @@ const deleteItem = (itemId) => {
   }).then(_checkResponse)
 }
 
+//PATCH user info
 const updateUser = ({ name, avatar }) => {
   const token = localStorage.getItem('jwt')
   return fetch(`${baseUrl}/users/me`, {
@@ -43,4 +44,32 @@ const updateUser = ({ name, avatar }) => {
   }).then(_checkResponse)
 }
 
-export { getItems, addItem, deleteItem, _checkResponse, updateUser }
+//PUT like
+const addCardLike = (itemId, token) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(_checkResponse)
+}
+
+//DELETE like
+const removeCardLike = (itemId, token) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(_checkResponse)
+}
+
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  _checkResponse,
+  updateUser,
+  addCardLike,
+  removeCardLike,
+}
