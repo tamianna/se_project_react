@@ -131,7 +131,7 @@ function App() {
 
   const handleLogin = ({ email, password }) => {
     setIsLoading(true)
-    authorize({ email, password })
+    return authorize({ email, password })
       .then((res) => {
         localStorage.setItem('jwt', res.token)
         setIsLoggedIn(true)
