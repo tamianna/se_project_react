@@ -261,6 +261,7 @@ function App() {
                       clothingItems={clothingItems}
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
+                      onEditProfile={handleEditProfileClick}
                     />
                   ) : (
                     <Navigate to="/" replace />
