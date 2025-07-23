@@ -31,4 +31,16 @@ const deleteItem = (itemId) => {
   }).then(_checkResponse)
 }
 
-export { getItems, addItem, deleteItem, _checkResponse }
+const updateUser = ({ name, avatar }) => {
+  const token = localStorage.getItem('jwt')
+  return fetch(`${baseUrl}/users/me`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then(_checkResponse)
+}
+
+export { getItems, addItem, deleteItem, _checkResponse, updateUser }
