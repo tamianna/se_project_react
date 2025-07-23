@@ -137,7 +137,10 @@ function App() {
         setIsLoggedIn(true)
         closeActiveModal()
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error(err)
+        return Promise.reject(err)
+      })
       .finally(() => setIsLoading(false))
   }
 
