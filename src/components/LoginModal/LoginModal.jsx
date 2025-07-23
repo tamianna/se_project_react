@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ModalWithFrom from '../ModalWithForm/ModalWithForm'
 import { useFormAndValidation } from '../../hooks/useFormAndValidation'
 
@@ -11,6 +11,7 @@ function LoginModal({
 }) {
   const { values, handleChange, isValid, errors, resetForm } =
     useFormAndValidation()
+  const [loginError, setLoginError] = useState('')
 
   useEffect(() => {
     if (isOpen) {
@@ -20,7 +21,10 @@ function LoginModal({
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onLogin(values)
+    setLoginError('')
+    onLogin(values).catch((err) => {
+      setLoginError('Email or password incorrect')
+    })
   }
 
   return (
@@ -71,6 +75,9 @@ function LoginModal({
       >
         or Sign Up
       </button>
+
+      {/* Login error message*/}
+      {loginError && <span className="modal__error">{loginError}</span>}
     </ModalWithFrom>
   )
 }
