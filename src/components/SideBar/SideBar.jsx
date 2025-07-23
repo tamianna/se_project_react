@@ -24,10 +24,18 @@ function SideBar({ onEditProfile, onLogout }) {
       <p className="sidebar__username">{name}</p>
 
       <div className="sidebar__mobile_text">
-        <button className="sidebar__change-profile-btn" onClick={onEditProfile}>
+        <button
+          className="sidebar__change-profile-btn"
+          onClick={onEditProfile}
+          type="button"
+        >
           Change profile data
         </button>
-        <button className="sidebar__logout-btn" onClick={onLogout}>
+        <button
+          className="sidebar__logout-btn"
+          onClick={onLogout}
+          type="submit"
+        >
           Log out
         </button>
       </div>
