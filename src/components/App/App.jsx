@@ -99,10 +99,26 @@ function App() {
     setIsMobileMenuOpened(false)
   }
 
+  const handleEditProfileClick = () => {
+    setActiveModal('edit')
+    setIsMobileMenuOpened(false)
+  }
+
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === 'F'
       ? setCurrentTemperatureUnit('C')
       : setCurrentTemperatureUnit('F')
+  }
+
+  const handleUpdateUser = (userData) => {
+    setIsLoading(true)
+    updateUser(userData)
+      .then((updateUser) => {
+        setCurrentUser(updateUser)
+        closeActiveModal()
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false))
   }
 
   const handleRegister = (data) => {
