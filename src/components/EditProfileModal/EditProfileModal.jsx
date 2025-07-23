@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from 'react'
 import ModalWithFrom from '../ModalWithForm/ModalWithForm'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
-function EditProfileModal({ isOpen, onClose, onUpdateUser, isLoading }) {
+function EditProfileModal({ isOpen, onClose, isValid, onUpdateUser, isLoading }) {
   const currentUser = useContext(CurrentUserContext)
 
   const [name, setName] = useState('')
@@ -44,7 +44,6 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser, isLoading }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {errors.name && <span className="modal__error">{errors.name}</span>}
       </label>
       <label className="modal__label">
         Avatar URL*
@@ -57,9 +56,6 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser, isLoading }) {
           value={avatar}
           onChange={(e) => setAvatar(e.target.value)}
         />
-        {errors.imageUrl && (
-          <span className="modal__error">{errors.imageUrl}</span>
-        )}
       </label>
     </ModalWithFrom>
   )
