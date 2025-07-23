@@ -3,7 +3,7 @@ import { getWeather, filterWeatherData } from '../../utils/WeatherApi'
 import { myCoordinates, APIkey } from '../../utils/constants'
 import { Routes, Route } from 'react-router-dom'
 import { handleSubmitButton } from '../../utils/helpers.js'
-import { getItems, addItem, deleteItem } from '../../utils/api.js'
+import { getItems, addItem, deleteItem, updateUser } from '../../utils/api.js'
 import { register, authorize, checkToken } from '../../utils/auth.js'
 import { Navigate } from 'react-router-dom'
 
@@ -19,6 +19,7 @@ import DeleteConfirmationModal from '../DeleteConfirmationModal/DeleteConfirmati
 import RegisterModal from '../RegisterModal/RegisterModal.jsx'
 import LoginModal from '../LoginModal/LoginModal.jsx'
 import CurrentUserContext from '../../contexts/CurrentUserContext.jsx'
+import EditProfileModal from '../EditProfileModal/EditProfileModal.jsx'
 
 function App() {
   const [weatherData, setWeatherData] = useState({
