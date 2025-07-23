@@ -19,10 +19,6 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext)
   const isLiked = item.likes.some((id) => id === currentUser?._id)
 
-  const itemLikeButtonClassName = `card__like-btn ${
-    isLiked ? 'card__like-btn_liked' : ''
-  }`
-
   const handlePreviewModal = () => {
     onCardClick(item)
   }
@@ -42,7 +38,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
       />
       {currentUser && (
         <button
-          className={itemLikeButtonClassName}
+          className="card__like-btn"
           type="button"
           onClick={handleLike}
         >
