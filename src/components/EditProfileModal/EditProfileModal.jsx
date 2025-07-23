@@ -2,7 +2,13 @@ import React, { useEffect, useContext, useState } from 'react'
 import ModalWithFrom from '../ModalWithForm/ModalWithForm'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
-function EditProfileModal({ isOpen, onClose, isValid, onUpdateUser, isLoading }) {
+function EditProfileModal({
+  isOpen,
+  onClose,
+  isValid,
+  onUpdateUser,
+  isLoading,
+}) {
   const currentUser = useContext(CurrentUserContext)
 
   const [name, setName] = useState('')
