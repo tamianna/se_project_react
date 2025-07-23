@@ -1,5 +1,8 @@
 import './ItemCard.css'
 import defaultImage from '../../images/defaultimage.jpg'
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+
+import { useContext } from 'react';
 
 export function shuffleItems(items = []) {
   const shuffled = [...items]
