@@ -28,6 +28,18 @@
   background-color: #e9e9e9;
 }
 
+.card__like-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.card__like-icon {
+  width: 20px;
+  height: 20px;
+}
+
 @media screen and (max-width: 425px) {
   .card {
     width: 164px;
