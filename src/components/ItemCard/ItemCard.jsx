@@ -1,5 +1,7 @@
 import './ItemCard.css'
 import defaultImage from '../../images/defaultimage.jpg'
+import dislikeHeart from '../../images/State=Default.svg'
+import likeHeart from '../../images/State=Liked.svg'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 import { useContext } from 'react'
