@@ -38,6 +38,15 @@ function ItemCard({ item, onCardClick, onCardLike }) {
           e.target.src = { defaultImage }
         }}
       />
+      {currentUser && (
+        <button
+          className={itemLikeButtonClassName}
+          type="button"
+          onClick={handleLike}
+        >
+          Like
+        </button>
+      )}
     </li>
   )
 }
