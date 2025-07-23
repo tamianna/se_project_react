@@ -6,7 +6,7 @@ import ItemCard, { shuffleItems } from '../ItemCard/ItemCard'
 import random from '../../images/random.svg'
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit'
 
-function Main({ weatherData, handleCardClick, clothingItems }) {
+function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext)
 
   const filteredItems = clothingItems.filter(
@@ -40,6 +40,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
                 key={item._id}
                 item={item}
                 onCardClick={handleCardClick}
+                onCardLike={onCardLike}
               />
             ))
           ) : (
