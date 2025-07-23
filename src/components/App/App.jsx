@@ -304,6 +304,12 @@ function App() {
             isLoading={isLoading}
             handleSignUpClick={handleSignUpClick}
           />
+          <EditProfileModal
+            isOpen={activeModal === 'edit'}
+            onClose={closeActiveModal}
+            onUpdateUser={handleUpdateUser}
+            isLoading={isLoading}
+          />
         </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>
     </div>
