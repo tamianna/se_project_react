@@ -3,11 +3,17 @@ import SideBar from '../SideBar/SideBar'
 import './Profile.css'
 import React from 'react'
 
-function Profile({ clothingItems, handleCardClick, handleAddClick, onEditProfile }) {
+function Profile({
+  clothingItems,
+  handleCardClick,
+  handleAddClick,
+  onEditProfile,
+  onLogout,
+}) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar onEditProfile={onEditProfile}/>
+        <SideBar onEditProfile={onEditProfile} onLogout={onLogout} />
       </section>
       <section className="profile__clothes">
         <ClothesSection
