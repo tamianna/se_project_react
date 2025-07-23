@@ -123,9 +123,12 @@ function App() {
 
   const handleRegister = (data) => {
     setIsLoading(true)
-    register(data)
+    return register(data)
       .then(() => handleLogin({ email: data.email, password: data.password }))
-      .catch(console.error)
+      .catch((err) => {
+        console.error(err)
+        return Promise.reject(err)
+      })
       .finally(() => setIsLoading(false))
   }
 
