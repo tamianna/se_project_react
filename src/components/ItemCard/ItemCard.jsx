@@ -46,7 +46,11 @@ function ItemCard({ item, onCardClick, onCardLike }) {
           type="button"
           onClick={handleLike}
         >
-          Like
+          <img
+            src={isLiked ? likeHeart : dislikeHeart}
+            alt={isLiked ? 'Unlike item' : 'Like item'}
+            className="card__like-icon"
+          />
         </button>
       )}
     </li>
