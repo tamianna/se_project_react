@@ -24,6 +24,7 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser, isLoading }) {
     <ModalWithFrom
       title="Change profile data"
       buttonText={isLoading ? 'Saving changes...' : 'Save changes'}
+      formType="edit"
       isOpen={isOpen}
       closeActiveModal={onClose}
       onSubmit={handleSubmit}
