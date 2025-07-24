@@ -83,15 +83,15 @@ function RegisterModal({
         Avatar URL*
         <input
           type="url"
-          name="imageUrl"
+          name="avatar"
           className="modal__input"
           required
           placeholder="Avatar URL"
-          value={values.imageUrl || ''}
+          value={values.avatar || ''}
           onChange={handleChange}
         />
-        {errors.imageUrl && (
-          <span className="modal__error">{errors.imageUrl}</span>
+        {errors.avatar && (
+          <span className="modal__error">{errors.avatar}</span>
         )}
       </label>
       <button
