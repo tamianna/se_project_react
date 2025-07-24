@@ -23,7 +23,7 @@ function SideBar({ onEditProfile, onLogout }) {
       {renderAvatar()}
       <p className="sidebar__username">{name}</p>
 
-      <div className="sidebar__mobile_text">
+      <div className="sidebar__buttons">
         <button
           className="sidebar__change-profile-btn"
           onClick={onEditProfile}
