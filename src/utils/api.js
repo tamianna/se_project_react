@@ -14,11 +14,12 @@ const getItems = () => {
 }
 
 // POST a new item
-const addItem = (item) => {
+const addItem = (item, token) => {
   return fetch(`${baseUrl}/items`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(item),
   }).then(_checkResponse)

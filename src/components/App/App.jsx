@@ -178,11 +178,13 @@ function App() {
   }
 
   const handleAddItemSubmit = (item, e) => {
+    const token = localStorage.getItem('jwt')
+
     handleSubmitButton(
       setIsLoading,
       () =>
         new Promise((resolve, reject) => {
-          addItem(item)
+          addItem(item, token)
             .then((newItem) => {
               setClothingItems([newItem, ...clothingItems])
               closeActiveModal()
