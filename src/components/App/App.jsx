@@ -204,6 +204,7 @@ function App() {
   }
 
   const handleCardDelete = (e) => {
+    const token = localStorage.getItem('jwt')
     e.preventDefault()
     if (!cardToDelete || !cardToDelete._id) return
 
@@ -211,10 +212,10 @@ function App() {
       setIsDeleting,
       () =>
         new Promise((resolve, reject) => {
-          deleteItem(cardToDelete._id)
+          deleteItem(cardToDelete._id, token)
             .then(() => {
               const updatedItems = clothingItems.filter(
-                (item) => item._id !== cardToDelete._id
+                (item) => item._id.toString() !== cardToDelete._id.toString()
               )
               setClothingItems(updatedItems)
               setIsDeleteModalOpen(false)

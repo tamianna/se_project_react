@@ -26,9 +26,13 @@ const addItem = (item, token) => {
 }
 
 // DELETE an item by ID
-const deleteItem = (itemId) => {
+const deleteItem = (itemId, token) => {
   return fetch(`${baseUrl}/items/${itemId}`, {
     method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    }
   }).then(_checkResponse)
 }
 
