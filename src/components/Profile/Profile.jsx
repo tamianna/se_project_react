@@ -9,6 +9,7 @@ function Profile({
   handleAddClick,
   onEditProfile,
   onLogout,
+  onCardLike,
 }) {
   return (
     <div className="profile">

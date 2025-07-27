@@ -302,6 +302,7 @@ function App() {
                       handleAddClick={handleAddClick}
                       onEditProfile={handleEditProfileClick}
                       onLogout={handleLogout}
+                      onCardLike={handleCardLike}
                     />
                   ) : (
                     <Navigate to="/" replace />
