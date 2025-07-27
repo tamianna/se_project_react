@@ -24,9 +24,9 @@ The WTWR app helps users decide what to wear by analyzing the current weather an
 
 ---
 
-## 🔗 Live Demo
+## 🔗 Live to Back-end repo
 
-[View Deployed App](https://tamianna.github.io/se_project_react/)
+https://github.com/tamianna/se_project_express
 
 ---
 
