@@ -33,6 +33,9 @@
   border: none;
   cursor: pointer;
   padding: 4px;
+  position: absolute;
+  top: 17px;
+  right: 100px;
 }
 
 .card__like-icon {
@@ -47,5 +50,9 @@
 
   .card__image {
     height: 164px;
+  }
+
+  .card__like-btn {
+   right: 20px;
   }
 }
