@@ -68,11 +68,14 @@ function App() {
   }, [])
 
   useEffect(() => {
-    getItems()
-      .then((data) => {
-        setClothingItems(data)
-      })
-      .catch(console.error)
+    const token = localStorage.getItem('jwt')
+    if (token) {
+      getItems(token)
+        .then((data) => {
+          setClothingItems(data)
+        })
+        .catch(console.error)
+    }
   }, [])
 
   useEffect(() => {

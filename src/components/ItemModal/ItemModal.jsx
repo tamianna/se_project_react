@@ -30,12 +30,16 @@ function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
         />
       </button>
       <img
-        src={card.imageUrl}
+        src={
+          typeof card.imageUrl === 'string'
+            ? card.imageUrl
+            : card.imageUrl?.url || defaultImage
+        }
         alt={card.name}
         className="modal__image"
         onError={(e) => {
           e.target.onerror = null
-          e.target.src = { defaultImage }
+          e.target.src = defaultImage
         }}
       />
       <div className="modal__footer">

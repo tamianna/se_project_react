@@ -30,18 +30,14 @@ function ItemCard({ item, onCardClick, onCardLike }) {
       <img
         onClick={handlePreviewModal}
         className="card__image"
-        src={item.imageUrl}
+        src={typeof item.imageUrl === 'string' ? item.imageUrl : defaultImage}
         alt={item.name}
         onError={(e) => {
-          e.target.src = { defaultImage }
+          e.target.src = defaultImage
         }}
       />
       {currentUser && (
-        <button
-          className="card__like-btn"
-          type="button"
-          onClick={handleLike}
-        >
+        <button className="card__like-btn" type="button" onClick={handleLike}>
           <img
             src={isLiked ? likeHeart : dislikeHeart}
             alt={isLiked ? 'Unlike item' : 'Like item'}
