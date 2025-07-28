@@ -9,8 +9,8 @@ import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 function ItemModal({ activeModal, closeActiveModal, card, onConfirmDelete }) {
   const currentUser = useContext(CurrentUserContext)
-  const isOwn = card.owner === currentUser?._id
-
+  const isOwn =
+    card.owner === currentUser?._id || card.owner?._id === currentUser?._id
   return (
     <Modal
       name="preview"
