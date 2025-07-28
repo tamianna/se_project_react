@@ -4,12 +4,20 @@ import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 import { useContext } from 'react'
 
-function ClothesSection({ handleCardClick, clothingItems, handleAddClick, onCardLike }) {
+function ClothesSection({
+  handleCardClick,
+  clothingItems,
+  handleAddClick,
+  onCardLike,
+}) {
   const currentUser = useContext(CurrentUserContext)
 
-  const userItems = clothingItems.filter(
-    (item) => item.owner === currentUser?._id
-  )
+  const userItems = clothingItems
+    ? clothingItems.filter(
+        (item) =>
+          item.owner === currentUser._id || item.owner?._id === currentUser._id
+      )
+    : []
 
   const noItems = userItems.length === 0
 
