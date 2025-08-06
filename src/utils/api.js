@@ -10,12 +10,12 @@ const _checkResponse = (res) => {
 
 // GET all items
 const getItems = () => {
-  const token = localStorage.getitem('jwt')
+  const token = localStorage.getItem('jwt')
 
   return fetch(`${baseUrl}/items`, {
     headers: {
       'Content-Type': 'application/json',
-      ..._checkResponse(token && { Authorization: `Bearer ${token}` }),
+      ...(token && { Authorization: `Bearer ${token}` }),
     },
   }).then(_checkResponse)
 }
