@@ -1,14 +1,11 @@
 import React, { useEffect, useContext, useState } from 'react'
+import { useFormAndValidation } from '../../hooks/useFormAndValidation'
 import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
-function EditProfileModal({
-  isOpen,
-  onClose,
-  isValid,
-  onUpdateUser,
-  isLoading,
-}) {
+function EditProfileModal({ isOpen, onClose, onUpdateUser, isLoading }) {
+  const { isValid } =
+    useFormAndValidation()
   const currentUser = useContext(CurrentUserContext)
 
   const [name, setName] = useState('')
