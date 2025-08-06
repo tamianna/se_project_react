@@ -68,22 +68,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const token = localStorage.getItem('jwt')
-    if (token) {
-      getItems(token)
-        .then((data) => {
-          setClothingItems(data)
-        })
-        .catch(console.error)
-    }
-  }, [])
-
-  useEffect(() => {
     getItems()
-    .then((data) => {
-      setClothingItems(data);
-    })
-    .catch(console.error);
+      .then((data) => {
+        setClothingItems(data)
+      })
+      .catch(console.error)
   }, [])
 
   const handleCardClick = (card) => {
@@ -165,6 +154,10 @@ function App() {
       .then((res) => {
         localStorage.setItem('jwt', res.token)
         setIsLoggedIn(true)
+        return checkToken(res.token)
+      })
+      .then((userData) => {
+        setCurrentUser(userData)
         closeActiveModal()
       })
       .catch((err) => {
