@@ -2,9 +2,18 @@ import './Main.css'
 import { useContext, useState, useEffect } from 'react'
 
 import WeatherCard from '../WeatherCard/WeatherCard'
-import ItemCard, { shuffleItems } from '../ItemCard/ItemCard'
+import ItemCard from '../ItemCard/ItemCard'
 import random from '../../images/random.svg'
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit'
+
+function shuffleItems(items = []) {
+  const shuffled = [...items]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
 
 function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext)
