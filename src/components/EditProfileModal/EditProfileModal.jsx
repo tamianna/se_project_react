@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react'
-import ModalWithFrom from '../ModalWithForm/ModalWithForm'
+import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 function EditProfileModal({
@@ -27,7 +27,7 @@ function EditProfileModal({
   }
 
   return (
-    <ModalWithFrom
+    <ModalWithForm
       title="Change profile data"
       buttonText={isLoading ? 'Saving changes...' : 'Save changes'}
       formType="edit"
@@ -63,7 +63,7 @@ function EditProfileModal({
           onChange={(e) => setAvatar(e.target.value)}
         />
       </label>
-    </ModalWithFrom>
+    </ModalWithForm>
   )
 }
 
