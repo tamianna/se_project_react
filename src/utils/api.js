@@ -10,7 +10,14 @@ const _checkResponse = (res) => {
 
 // GET all items
 const getItems = () => {
-  return fetch(`${baseUrl}/items`).then(_checkResponse)
+  const token = localStorage.getitem('jwt')
+
+  return fetch(`${baseUrl}/items`, {
+    headers: {
+      'Content-Type': 'application/json',
+      ..._checkResponse(token && { Authorization: `Bearer ${token}` }),
+    },
+  }).then(_checkResponse)
 }
 
 // POST a new item
@@ -30,9 +37,9 @@ const deleteItem = (itemId, token) => {
   return fetch(`${baseUrl}/items/${itemId}`, {
     method: 'DELETE',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
-    }
+    },
   }).then(_checkResponse)
 }
 
