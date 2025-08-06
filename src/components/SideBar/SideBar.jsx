@@ -1,6 +1,5 @@
 import './SideBar.css'
 import React, { useContext } from 'react'
-import headerAvatar from '../../images/header-avatar.svg'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 function SideBar({ onEditProfile, onLogout }) {
