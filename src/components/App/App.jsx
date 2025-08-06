@@ -16,7 +16,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 
 import './App.css'
 import Header from '../Header/Header'
-import Main from '../Main/Main'
+import Main from '../Main/Main.jsx'
 import Profile from '../Profile/Profile.jsx'
 import Footer from '../Footer/Footer'
 import AddItemModal from '../AddItemModal/AddItemModal.jsx'
@@ -79,17 +79,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const token = localStorage.getItem('jwt')
-    if (token) {
-      checkToken(token)
-        .then((user) => {
-          setIsLoggedIn(true)
-          setCurrentUser(user)
-        })
-        .catch(() => {
-          localStorage.removeItem('jwt')
-        })
-    }
+    getItems()
+    .then((data) => {
+      setClothingItems(data);
+    })
+    .catch(console.error);
   }, [])
 
   const handleCardClick = (card) => {
