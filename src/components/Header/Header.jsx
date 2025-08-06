@@ -6,7 +6,7 @@ import headerLogo from '../../images/header-logo.svg'
 import headerAvatar from '../../images/header-avatar.svg'
 import menuOpenIcon from '../../images/menu-tab.svg'
 import menuCloseIcon from '../../images/menu-close.svg'
-import ToggleSwitch from '../ToggleSwitch/ToggleSwith.jsx'
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx'
 import CurrentUserContext from '../../contexts/CurrentUserContext.jsx'
 
 function Header({
