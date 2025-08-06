@@ -7,7 +7,7 @@ import headerAvatar from '../../images/header-avatar.svg'
 import menuOpenIcon from '../../images/menu-tab.svg'
 import menuCloseIcon from '../../images/menu-close.svg'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx'
-import CurrentUserContext from '../../contexts/CurrentUserContext.jsx'
+import CurrentUserContext from '../../contexts/CurrentUserContext.js'
 
 function Header({
   handleAddClick,
