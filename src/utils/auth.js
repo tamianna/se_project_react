@@ -1,3 +1,5 @@
+import { _checkResponse } from './api'
+
 const baseUrl = 'http://localhost:3001'
 
 export const register = ({ email, password, name, avatar }) => {
@@ -7,7 +9,7 @@ export const register = ({ email, password, name, avatar }) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password, name, avatar }),
-  }).then((res) => (res.ok ? res.json() : Promise.reject(res)))
+  }).then(_checkResponse)
 }
 
 export const authorize = ({ email, password }) => {
@@ -17,7 +19,7 @@ export const authorize = ({ email, password }) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
-  }).then((res) => (res.ok ? res.json() : Promise.reject(res)))
+  }).then(_checkResponse)
 }
 
 export const checkToken = (token) => {
@@ -27,5 +29,5 @@ export const checkToken = (token) => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => (res.ok ? res.json() : Promise.reject(res)))
+  }).then(_checkResponse)
 }
