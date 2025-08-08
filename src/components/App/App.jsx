@@ -27,6 +27,7 @@ import RegisterModal from '../RegisterModal/RegisterModal.jsx'
 import LoginModal from '../LoginModal/LoginModal.jsx'
 import CurrentUserContext from '../../contexts/CurrentUserContext.js'
 import EditProfileModal from '../EditProfileModal/EditProfileModal.jsx'
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js'
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -309,7 +310,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  isLoggedIn ? (
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       clothingItems={clothingItems}
                       handleCardClick={handleCardClick}
@@ -318,9 +319,7 @@ function App() {
                       onLogout={handleLogout}
                       onCardLike={handleCardLike}
                     />
-                  ) : (
-                    <Navigate to="/" replace />
-                  )
+                  </ProtectedRoute>
                 }
               />
             </Routes>
