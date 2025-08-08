@@ -51,7 +51,7 @@ function App() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const today = new Date().toLocaleString('defualt', {
+    const today = new Date().toLocaleString('default', {
       month: 'long',
       day: 'numeric',
     })
