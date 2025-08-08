@@ -1,7 +1,11 @@
+// External library imports:
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
+
+// Utility/API imports:
 import { getWeather, filterWeatherData } from '../../utils/WeatherApi'
 import { myCoordinates, APIkey } from '../../utils/constants'
-import { Routes, Route } from 'react-router-dom'
 import { handleSubmitButton } from '../../utils/helpers.js'
 import {
   getItems,
@@ -12,8 +16,8 @@ import {
   removeCardLike,
 } from '../../utils/api.js'
 import { register, authorize, checkToken } from '../../utils/auth.js'
-import { Navigate, useNavigate } from 'react-router-dom'
 
+// Internal component imports:
 import './App.css'
 import Header from '../Header/Header'
 import Main from '../Main/Main.jsx'
