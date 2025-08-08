@@ -75,6 +75,21 @@ function App() {
       .catch(console.error)
   }, [])
 
+  useEffect(() => {
+    const token = localStorage.getItem('jwt')
+    if (token) {
+      checkToken(token)
+        .then((userData) => {
+          setCurrentUser(userData)
+          setIsLoggedIn(true)
+        })
+        .catch((err) => {
+          console.error('Token validation failed:', err)
+          localStorage.removeItem('jwt')
+        })
+    }
+  }, [])
+
   const handleCardClick = (card) => {
     setActiveModal('preview')
     setSelectedCard(card)
