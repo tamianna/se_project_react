@@ -64,7 +64,9 @@ function App() {
         const filteredData = filterWeatherData(data)
         setWeatherData(filteredData)
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error('Failed to fetch weather data:', err)
+      })
   }, [])
 
   useEffect(() => {
@@ -72,7 +74,9 @@ function App() {
       .then((data) => {
         setClothingItems(data)
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error('Failed to fetch clothing item:', err)
+      })
   }, [])
 
   useEffect(() => {
@@ -138,7 +142,9 @@ function App() {
           cards.map((item) => (item._id === id ? updateCard : item))
         )
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.error('Failed to like card:', err)
+      })
   }
 
   const handleUpdateUser = (userData) => {
@@ -148,7 +154,9 @@ function App() {
         setCurrentUser(updateUser)
         closeActiveModal()
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error('Failed to update user data:', err)
+      })
       .finally(() => setIsLoading(false))
   }
 
@@ -157,7 +165,7 @@ function App() {
     return register(data)
       .then(() => handleLogin({ email: data.email, password: data.password }))
       .catch((err) => {
-        console.error(err)
+        console.error('Failed to register new user:', err)
         return Promise.reject(err)
       })
       .finally(() => setIsLoading(false))
@@ -176,7 +184,7 @@ function App() {
         closeActiveModal()
       })
       .catch((err) => {
-        console.error(err)
+        console.error('Failed to login in user:', err)
         return Promise.reject(err)
       })
       .finally(() => setIsLoading(false))
@@ -196,7 +204,7 @@ function App() {
               setTimeout(resolve, 500)
             })
             .catch((err) => {
-              console.error(err)
+              console.error('Failed to add item:', err)
               reject(err)
             })
         }),
@@ -229,7 +237,7 @@ function App() {
               setTimeout(resolve, 500)
             })
             .catch((err) => {
-              console.error(err)
+              console.error('Failed to delete item:', err)
               reject(err)
             })
         }),
