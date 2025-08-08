@@ -17,6 +17,10 @@ import {
 } from '../../utils/api.js'
 import { register, authorize, checkToken } from '../../utils/auth.js'
 
+// Contexts imports:
+import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit.js'
+import CurrentUserContext from '../../contexts/CurrentUserContext.js'
+
 // Internal component imports:
 import './App.css'
 import Header from '../Header/Header'
@@ -25,11 +29,9 @@ import Profile from '../Profile/Profile.jsx'
 import Footer from '../Footer/Footer'
 import AddItemModal from '../AddItemModal/AddItemModal.jsx'
 import ItemModal from '../ItemModal/ItemModal'
-import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit.js'
 import DeleteConfirmationModal from '../DeleteConfirmationModal/DeleteConfirmationModal.jsx'
 import RegisterModal from '../RegisterModal/RegisterModal.jsx'
 import LoginModal from '../LoginModal/LoginModal.jsx'
-import CurrentUserContext from '../../contexts/CurrentUserContext.js'
 import EditProfileModal from '../EditProfileModal/EditProfileModal.jsx'
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.jsx'
 
