@@ -31,7 +31,7 @@ import RegisterModal from '../RegisterModal/RegisterModal.jsx'
 import LoginModal from '../LoginModal/LoginModal.jsx'
 import CurrentUserContext from '../../contexts/CurrentUserContext.js'
 import EditProfileModal from '../EditProfileModal/EditProfileModal.jsx'
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js'
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.jsx'
 
 function App() {
   const [weatherData, setWeatherData] = useState({
